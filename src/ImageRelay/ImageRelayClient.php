@@ -25,18 +25,18 @@ class ImageRelayClient extends Client
         $client = new self($config->get('base_url'), $config);
         if ($config['auth'] === 'http') {
             if (! isset($config['username'], $config['password'])) {
-                throw new InvalidArgumentException("Config must contain username and password when using http auth");
+                throw new InvalidArgumentException("Username and password required when using http auth.");
             }
             $authorization = 'Basic ' . base64_encode($config['username'] . ':' . $config['password']);
         }
         if ($config['auth'] === 'oauth') {
             if (! isset($config['token'])) {
-                throw new InvalidArgumentException("Config must contain token when using oauth");
+                throw new InvalidArgumentException("Access token required when using oauth.");
             }
             $authorization = sprintf('Bearer %s', $config['token']);
         }
         if (! isset($authorization)) {
-            throw new InvalidArgumentException("Config must contain valid authentication method");
+            throw new InvalidArgumentException("Must use either http or oauth authentication method.");
         }
         // Attach a service description to the client
         $description = ServiceDescription::factory(__DIR__ . '/Resources/api.php');
