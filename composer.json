@@ -4,6 +4,7 @@
     "type": "library",
     "keywords": ["imagerelay", "api"],
     "license": "MIT",
+    "version":"0.0.1-alpha",
     "require": {
         "guzzle/guzzle": "~3.3"
     },
