@@ -1,1 +1,1 @@
-# imagerelay-php
+# Image Relay PHP API Library 
