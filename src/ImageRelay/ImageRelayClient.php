@@ -17,7 +17,10 @@ class ImageRelayClient extends Client
      */
     public static function factory($config = array())
     {
-        $default = include('default_config.php');
+        $default = array(
+            'base_url'          => 'https://{imagerelay_url}/api/v2/',
+            'imagerelay_url'    => 'mathisfamily.imagerelay.com',
+        );
         $config = Collection::fromConfig($config, $default);
         $client = new self($config->get('base_url'), $config);
         if ($config['auth'] === 'http') {
