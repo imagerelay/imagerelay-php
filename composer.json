@@ -3,8 +3,9 @@
     "description": "The Image Relay PHP Library makes it easy for developers to leverage the Image Relay API in their applications.",
     "type": "library",
     "keywords": ["imagerelay", "api"],
+    "homepage": "https://github.com/imagerelay/imagerelay-php",
     "license": "MIT",
-    "version":"0.0.1-alpha",
+    "version": "0.0.1",
     "require": {
         "guzzle/guzzle": "~3.3"
     },
@@ -12,6 +13,7 @@
         {
             "name": "Travis Mathis",
             "email": "travis@imagerelay.com"
+            "role": "Developer"
         }
     ],
     "autoload": {
