@@ -54,3 +54,32 @@ When authorizing with oauth you will need to use one of the many existing librar
 	));
 ?>
 ```
+###Files
+
+#####Get Files from Folder
+```code
+	$response = $client->getFiles( array(
+		'folder_id' => 8363117,
+	));
+```
+
+#####Get File
+```code
+	$response = $client->getFile( array(
+		'id' => 8363117,
+	));
+```
+
+#####Upload File from URL
+```code
+	$response = $client->uploadFileFromURL( array(
+		'filename' => 'test.jpg',
+		'folder_id' => 285356,
+		'file_type_id' => 1464,
+		'terms' => array(
+			'term_id' => '145',
+			'value' => 'Test Value',
+		),
+		'url' => 'https://upload.wikimedia.org/wikipedia/commons/5/55/Atelopus_zeteki1.jpg'
+	));
+```
