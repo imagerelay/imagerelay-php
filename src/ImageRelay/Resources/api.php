@@ -13,7 +13,7 @@
                         'description' => 'Folder ID',
                         'type' => 'integer',
                         'required' => true,
-                    )
+                    ),
                     'uploaded_after' => array(
                         'location' => 'query',
                         'description' => 'Will return files uploaded to designated folder.  Date format should be YYYY-MM-DD HH:MM:SS -- you can leave off the time if you want to start at the beginning of the day.',
