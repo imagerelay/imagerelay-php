@@ -19,7 +19,7 @@ class ImageRelayClient extends Client
     {
         $default = array(
             'base_url'          => 'https://{imagerelay_url}/api/v2/',
-            'imagerelay_url'    => 'mathisfamily.imagerelay.com',
+            'imagerelay_url'    => 'subdomain.imagerelay.com',
         );
         $config = Collection::fromConfig($config, $default);
         $client = new self($config->get('base_url'), $config);
