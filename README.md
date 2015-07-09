@@ -92,30 +92,40 @@ When authorizing with oauth you will need to use one of the many existing librar
 
 ###### Top Level Folders
 ```code
-
+$response = $client->getFolders();
 ```
 
 ###### Children of Parent Folder
 ```code
-
+$response = $client->getChildFolders( array(
+	'folder_id' => 191678,
+));
 ```
 
 ###### Root Folder
 ```code
-
+$response = $client->getRootFolder();
 ```
 
 ##### Get Folder
 ```code
-
+$response = $client->getFolder( array(
+	'folder_id' => 191678,
+));
 ```
 
 ##### Create Folder
 ```code
-
+$response = $client->createFolder( array(
+	'folder_id' => 191678,
+	'name' => 'Testing Folder Create',
+));
 ```
 
 ##### Update Folder
 ```code
-
+$response = $client->updateFolder( array(
+	'folder_id' => 290503,
+	'name' => 'New Folder Create',
+));
 ```
