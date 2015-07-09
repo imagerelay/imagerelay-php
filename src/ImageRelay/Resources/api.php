@@ -77,7 +77,94 @@
                         'required' => true,
                     )
                 )
-            )
+            ),
+
+            /* FOLDERS */
+            /* getFolders */
+            'getFolders' => array(
+                'httpMethod' => 'GET',
+                'uri' => 'folders.json',
+                'summary' => 'Get top level folders viewable by user' . PHP_EOL . '[ImageRelay API: Folders](https://github.com/imagerelay/api/blob/master/sections/folders.md#get-folders)',
+            ),
+
+            /* getChildFolders */
+            'getChildFolders' => array(
+                'httpMethod' => 'GET',
+                'uri' => 'folders/{folder_id}/children.json',
+                'summary' => 'Get child folders of a specified parent' . PHP_EOL . '[ImageRelay API: Folders](https://github.com/imagerelay/api/blob/master/sections/folders.md#get-folders)',
+                'parameters' => array(
+                    'folder_id' => array(
+                        'location' => 'uri',
+                        'description' => 'Folder ID',
+                        'type' => 'integer',
+                        'required' => true,
+                    )
+                )
+            ),
+
+            /* getRootFolder */
+            'getRootFolder' => array(
+                'httpMethod' => 'GET',
+                'uri' => 'folders/root.json',
+                'summary' => 'Get root of all the folders for user. This folder isnt visible in the UI, calling children on this folder is quivalent of calling getFolders' . PHP_EOL . '[ImageRelay API: Folders](https://github.com/imagerelay/api/blob/master/sections/folders.md#get-folders)',
+            ),
+
+            /* getFolder */
+            'getFolder' => array(
+                'httpMethod' => 'GET',
+                'uri' => 'folders/{folder_id}.json',
+                'summary' => 'Get specified folder.' . PHP_EOL . '[ImageRelay API: Folders](https://github.com/imagerelay/api/blob/master/sections/folders.md#get-folder)',
+                'parameters' => array(
+                    'folder_id' => array(
+                        'location' => 'uri',
+                        'description' => 'Folder ID',
+                        'type' => 'integer',
+                        'required' => true,
+                    )
+                )
+            ),
+
+            /* createFolder */
+            'createFolder' => array(
+                'httpMethod' => 'POST',
+                'uri' => 'folders/{folder_id}/children.json',
+                'summary' => 'Create a new folder that is a child of the specified parent folder.' . PHP_EOL . '[ImageRelay API: Folders](https://github.com/imagerelay/api/blob/master/sections/folders.md#get-folder)',
+                'parameters' => array(
+                    'folder_id' => array(
+                        'location' => 'uri',
+                        'description' => 'Folder ID',
+                        'type' => 'integer',
+                        'required' => true,
+                    ),
+                    'name' => array(
+                        'location' => 'json',
+                        'description' => 'Folder Name',
+                        'type' => 'string',
+                        'required' => true,
+                    )
+                )
+            ),
+
+            /* updateFolder */
+            'updateFolder' => array(
+                'httpMethod' => 'PUT',
+                'uri' => 'folders/{folder_id}.json',
+                'summary' => 'Update the specified folder.' . PHP_EOL . '[ImageRelay API: Folders](https://github.com/imagerelay/api/blob/master/sections/folders.md#update-folder)',
+                'parameters' => array(
+                    'folder_id' => array(
+                        'location' => 'uri',
+                        'description' => 'Folder ID',
+                        'type' => 'integer',
+                        'required' => true,
+                    ),
+                    'name' => array(
+                        'location' => 'json',
+                        'description' => 'Folder Name',
+                        'type' => 'string',
+                        'required' => true,
+                    )
+                )
+            ),
         )
     );
 ?>

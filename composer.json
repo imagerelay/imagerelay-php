@@ -7,7 +7,7 @@
     "license": "MIT",
     "version": "0.0.1",
     "require": {
-        "guzzle/guzzle": "~3.3"
+        "guzzlehttp/guzzle": "^6.0"
     },
     "authors": [
         {

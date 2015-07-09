@@ -4,6 +4,8 @@ This is still a work in progress and is not complete.  If you would like to cont
 
 ## Installation
 
+We recommend using composer to manage dependencies and installation of the Image Relay API PHP library.  If you are unfamiliar with composer you can read about installation into your application here - [Composer Install How To](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)
+
 #####Edit composer.json and include the following:
 ```json
 	"repositories": [
@@ -82,4 +84,38 @@ When authorizing with oauth you will need to use one of the many existing librar
 		),
 		'url' => 'https://upload.wikimedia.org/wikipedia/commons/5/55/Atelopus_zeteki1.jpg'
 	));
+```
+
+###Folders
+
+#####Get Folders
+
+###### Top Level Folders
+```code
+
+```
+
+###### Children of Parent Folder
+```code
+
+```
+
+###### Root Folder
+```code
+
+```
+
+##### Get Folder
+```code
+
+```
+
+##### Create Folder
+```code
+
+```
+
+##### Update Folder
+```code
+
 ```

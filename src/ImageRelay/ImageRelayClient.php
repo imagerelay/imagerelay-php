@@ -12,7 +12,7 @@ class ImageRelayClient extends Client
 {
     /**
      * @param array $config
-     * @return \Guzzle\Service\Client|BasecampClient
+     * @return \Guzzle\Service\Client|ImageRelayClient
      * @throws \Guzzle\Common\Exception\InvalidArgumentException
      */
     public static function factory($config = array())
