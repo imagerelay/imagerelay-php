@@ -8,7 +8,7 @@
     "require": {
         "guzzle/guzzle": "~3.3",
         "php": ">=5.3.3",
-        "ext-curl": "*",
+        "ext-curl": "*"
     },
     "authors": [
         {
