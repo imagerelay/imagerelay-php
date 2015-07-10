@@ -6,21 +6,10 @@ This is still a work in progress and is not complete.  If you would like to cont
 
 We recommend using composer to manage dependencies and installation of the Image Relay API PHP library.  If you are unfamiliar with composer you can read about installation into your application here - [Composer Install How To](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)
 
-#####Edit composer.json and include the following:
-```json
-	"repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/imagerelay/imagerelay-php"
-        }
-    ],
-    "require": {
-    	"imagerelay/imagerelay-php": "dev-master"
-    }
-```
+
 #####Run the following command from your console
 ```php
-	$ php composer.phar install
+	$ composer require imagerelay/imagerelay-php
 ```
 
 ##Usage
