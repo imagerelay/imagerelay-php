@@ -308,3 +308,39 @@ $response = $client->getUser( array(
 	'id' => 290503,
 ));
 ```
+
+###Webhooks
+[Image Relay API: Webhooks](https://github.com/imagerelay/API/blob/master/sections/webhooks.md)
+#####Get Webhooks
+```php
+$response = $client->getWebhooks();
+```
+
+#####Get Webhook
+```php
+$response = $client->getWebhook( array(
+	'id' => 290503,
+));
+```
+
+#####Create Webhook
+```php
+$response = $client->createWebhook( array(
+	'resource' => 'file',
+	'action' => 'created',
+	'url' => 'https://www.example.com'
+));
+```
+
+#####Delete Upload Link
+```php
+$response = $client->deleteWebhook( array(
+	'id' => 290503,
+));
+```
+
+#####Supported Webhooks
+```php
+$response = $client->getSupportedWebhooks();
+```
+

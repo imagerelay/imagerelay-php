@@ -608,6 +608,79 @@
                     )
                 )
             ),
+
+            /* WEBHOOKS */
+            /* getWebhooks */
+            'getWebhooks' => array(
+                'httpMethod' => 'GET',
+                'uri' => 'webhooks.json',
+                'summary' => 'Returns a list of all Webhooks' . PHP_EOL . '[ImageRelay API: Webhooks](https://github.com/imagerelay/api/blob/master/sections/webhooks.md#get-webhooks)',
+            ),
+
+            /* getWebhook */
+            'getWebhook' => array(
+                'httpMethod' => 'GET',
+                'uri' => 'webhooks/{id}.json',
+                'summary' => 'Get specified webhook.' . PHP_EOL . '[ImageRelay API: Webhooks](https://github.com/imagerelay/api/blob/master/sections/webhooks.md#get-webhooks)',
+                'parameters' => array(
+                    'id' => array(
+                        'location' => 'uri',
+                        'description' => 'Webhook ID',
+                        'type' => 'integer',
+                        'required' => true,
+                    )
+                )
+            ),
+
+            /* createWebhook */
+            'createWebhook' => array(
+                'httpMethod' => 'POST',
+                'uri' => 'webhooks.json',
+                'summary' => 'Create a new webhook.' . PHP_EOL . '[ImageRelay API: Webhooks](https://github.com/imagerelay/api/blob/master/sections/webhooks.md#create-webhook)',
+                'parameters' => array(
+                    'resource' => array(
+                        'location' => 'json',
+                        'description' => 'Resource to create webhook for.',
+                        'type' => 'string',
+                        'required' => true,
+                    ),
+                    'action' => array (
+                        'location' => 'json',
+                        'description' => 'The action that will be watched for on the associated resource',
+                        'type' => 'string'
+                        'required' => true,
+                    ),
+                    'url' => array (
+                        'location' => 'json',
+                        'description' => 'callback url where the even details will be delivered.',
+                        'type' => 'string'
+                        'required' => true,
+                    ),
+                )
+            ),
+            
+            /* deleteWebhook */
+            'deleteWebhook' => array(
+                'httpMethod' => 'DELETE',
+                'uri' => 'webhooks/{id}.json',
+                'summary' => 'Delete specified webhook.' . PHP_EOL . '[ImageRelay API: Webhooks](https://github.com/imagerelay/api/blob/master/sections/webhooks.md#delete-webhook)',
+                'parameters' => array(
+                    'id' => array(
+                        'location' => 'uri',
+                        'description' => 'Webhook ID',
+                        'type' => 'integer',
+                        'required' => true,
+                    )
+                )
+            ),
+
+            /* supportedWebhooks */
+            'getSupportedWebhooks' => array(
+                'httpMethod' => 'GET',
+                'uri' => 'webhooks/supported.json',
+                'summary' => 'Returns a list of all supported webhooks, their resource, and actions.' . PHP_EOL . '[ImageRelay API: Webhooks](https://github.com/imagerelay/api/blob/master/sections/webhooks.md#supported-webhooks)',
+            ),
+
         )
     );
 ?>
