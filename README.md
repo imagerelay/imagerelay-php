@@ -57,6 +57,7 @@ When authorizing with oauth you will need to use one of the many existing librar
 ?>
 ```
 ###Files
+[Image Relay API: Files](https://github.com/imagerelay/api/blob/master/sections/files.md)
 
 #####Get Files from Folder
 ```code
@@ -88,6 +89,7 @@ When authorizing with oauth you will need to use one of the many existing librar
 ```
 
 ###Folders
+[Image Relay API: Folders](https://github.com/imagerelay/API/blob/master/sections/folders.md)
 
 #####Get Folders
 
@@ -132,7 +134,7 @@ $response = $client->updateFolder( array(
 ```
 
 ###File Types
-
+[Image Relay API: File Types](https://github.com/imagerelay/API/blob/master/sections/file_types.md)
 #####Get File Types
 ```code
 $response = $client->getFileTypes();
@@ -146,7 +148,7 @@ $response = $client->getFileType( array(
 ```
 
 ###Folder Links
-
+[Image Relay API: Folder Links](https://github.com/imagerelay/API/blob/master/sections/folder_links.md)
 #####Get Folder Links
 ```code
 $response = $client->getFolderLinks( array(
@@ -180,7 +182,7 @@ $response = $client->deleteFolderLink( array(
 ```
 
 ###Invited Users
-
+[Image Relay API: Invited Users](https://github.com/imagerelay/API/blob/master/sections/invited_users.md)
 #####Get Invited Users
 ```code
 $response = $client->getInvitedUsers( array(
@@ -213,3 +215,18 @@ $response = $client->deleteInvitedUser( array(
 ));
 ```
 
+###Permissions
+[Image Relay API: Permissions](https://github.com/imagerelay/api/blob/master/sections/permissions.md#permissions)
+#####Get Permissions
+```code
+$response = $client->getPermissions( array(
+	'page' => 2,
+));
+```
+
+#####Get Permission
+```code
+$response = $client->getPermission( array(
+	'id' => 290503,
+));
+```

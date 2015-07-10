@@ -23,7 +23,7 @@
                         'required' => false,
                     ),
                     'page' => array(
-                        'location' => 'json',
+                        'location' => 'query',
                         'description' => 'used to paginate pages.',
                         'type' => 'integer',
                         'required' => false,
@@ -203,7 +203,7 @@
                 'summary' => 'Returns list of folder links associated with the account' . PHP_EOL . '[ImageRelay API: Folder Links](https://github.com/imagerelay/api/blob/master/sections/folder_links.md#get-folder-links-)',
                 'parameters' => array(
                     'page' => array(
-                        'location' => 'json',
+                        'location' => 'query',
                         'description' => 'used to paginate pages.',
                         'type' => 'integer',
                         'required' => false,
@@ -288,7 +288,7 @@
                 'summary' => 'Returns list of invited users associated with the account' . PHP_EOL . '[ImageRelay API: Invited Users](https://github.com/imagerelay/api/blob/master/sections/invited_users.md#get-invited-users-)',
                 'parameters' => array(
                     'page' => array(
-                        'location' => 'json',
+                        'location' => 'query',
                         'description' => 'used to paginate pages.',
                         'type' => 'integer',
                         'required' => false,
@@ -359,6 +359,37 @@
                     'id' => array(
                         'location' => 'uri',
                         'description' => 'Invited User ID',
+                        'type' => 'integer',
+                        'required' => true,
+                    )
+                )
+            ),
+
+            /* PERMISSIONS */
+            /* getPermissions */
+            'getPermissions' => array(
+                'httpMethod' => 'GET',
+                'uri' => 'permissions.json',
+                'summary' => 'Returns list of permissions associated with the account' . PHP_EOL . '[ImageRelay API: Permissions](https://github.com/imagerelay/api/blob/master/sections/permissions.md#get-permissions)',
+                'parameters' => array(
+                    'page' => array(
+                        'location' => 'query',
+                        'description' => 'used to paginate pages.',
+                        'type' => 'integer',
+                        'required' => false,
+                    )
+                )
+            ),
+
+            /* getPermission */
+            'getPermission' => array(
+                'httpMethod' => 'GET',
+                'uri' => 'permissions/{id}.json',
+                'summary' => 'Get specified permission.' . PHP_EOL . '[ImageRelay API: Invited Users](https://github.com/imagerelay/api/blob/master/sections/permissions.md#get-permission)',
+                'parameters' => array(
+                    'id' => array(
+                        'location' => 'uri',
+                        'description' => 'Permission ID',
                         'type' => 'integer',
                         'required' => true,
                     )
