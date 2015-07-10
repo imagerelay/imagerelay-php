@@ -165,6 +165,29 @@
                     )
                 )
             ),
+
+            /* FILE TYPES */
+            /* getFileTypes */
+            'getFileTypes' => array(
+                'httpMethod' => 'GET',
+                'uri' => 'file_types.json',
+                'summary' => 'Returns file types for the account' . PHP_EOL . '[ImageRelay API: File Types](https://github.com/imagerelay/api/blob/master/sections/file_types.md#get-file-types)',
+            ),
+
+            /* getFileType */
+            'getFileType' => array(
+                'httpMethod' => 'GET',
+                'uri' => 'file_types/{id}.json',
+                'summary' => 'Get specified file type.' . PHP_EOL . '[ImageRelay API: Folders](https://github.com/imagerelay/api/blob/master/sections/file_types.md#get-file-type)',
+                'parameters' => array(
+                    'id' => array(
+                        'location' => 'uri',
+                        'description' => 'File Type ID',
+                        'type' => 'integer',
+                        'required' => true,
+                    )
+                )
+            ),
         )
     );
 ?>

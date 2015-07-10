@@ -129,3 +129,17 @@ $response = $client->updateFolder( array(
 	'name' => 'New Folder Create',
 ));
 ```
+
+###File Types
+
+#####Get File Types
+```code
+$response = $client->getFileTypes();
+```
+
+#####Get File Type
+```code
+$response = $client->getFileType( array(
+	'id' => 290503,
+));
+```
