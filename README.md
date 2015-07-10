@@ -19,7 +19,7 @@ We recommend using composer to manage dependencies and installation of the Image
     }
 ```
 #####Run the following command from your console
-```code
+```php
 	$ php composer.phar install
 ```
 
@@ -27,7 +27,7 @@ We recommend using composer to manage dependencies and installation of the Image
 To use the library you only need to have an Image Relay account with proper permissions to complete the API actions. 
 
 #####Authorization with username and password
-```code
+```php
 <?php
 	require_once 'vendor/autoload.php';
 
@@ -44,7 +44,7 @@ To use the library you only need to have an Image Relay account with proper perm
 #####Authorization with oAuth
 When authorizing with oauth you will need to use one of the many existing libraries available to retrieve your oauth access token.  The Image Relay API adheres to oauth standars for authentication.
 
-```code
+```php
 <?php
 	require_once 'vendor/autoload.php';
 
@@ -60,7 +60,7 @@ When authorizing with oauth you will need to use one of the many existing librar
 [Image Relay API: Files](https://github.com/imagerelay/api/blob/master/sections/files.md)
 
 #####Get Files from Folder
-```code
+```php
 	$response = $client->getFiles( array(
 		'folder_id' => 8363117,
 		'page' => 2,
@@ -68,14 +68,14 @@ When authorizing with oauth you will need to use one of the many existing librar
 ```
 
 #####Get File
-```code
+```php
 	$response = $client->getFile( array(
 		'id' => 8363117,
 	));
 ```
 
 #####Upload File from URL
-```code
+```php
 	$response = $client->uploadFileFromURL( array(
 		'filename' => 'test.jpg',
 		'folder_id' => 285356,
@@ -94,31 +94,31 @@ When authorizing with oauth you will need to use one of the many existing librar
 #####Get Folders
 
 ###### Top Level Folders
-```code
+```php
 $response = $client->getFolders();
 ```
 
 ###### Children of Parent Folder
-```code
+```php
 $response = $client->getChildFolders( array(
 	'folder_id' => 191678,
 ));
 ```
 
 ###### Root Folder
-```code
+```php
 $response = $client->getRootFolder();
 ```
 
 ##### Get Folder
-```code
+```php
 $response = $client->getFolder( array(
 	'folder_id' => 191678,
 ));
 ```
 
 ##### Create Folder
-```code
+```php
 $response = $client->createFolder( array(
 	'folder_id' => 191678,
 	'name' => 'Testing Folder Create',
@@ -126,7 +126,7 @@ $response = $client->createFolder( array(
 ```
 
 ##### Update Folder
-```code
+```php
 $response = $client->updateFolder( array(
 	'folder_id' => 290503,
 	'name' => 'New Folder Create',
@@ -136,12 +136,12 @@ $response = $client->updateFolder( array(
 ###File Types
 [Image Relay API: File Types](https://github.com/imagerelay/API/blob/master/sections/file_types.md)
 #####Get File Types
-```code
+```php
 $response = $client->getFileTypes();
 ```
 
 #####Get File Type
-```code
+```php
 $response = $client->getFileType( array(
 	'id' => 290503,
 ));
@@ -150,21 +150,21 @@ $response = $client->getFileType( array(
 ###Folder Links
 [Image Relay API: Folder Links](https://github.com/imagerelay/API/blob/master/sections/folder_links.md)
 #####Get Folder Links
-```code
+```php
 $response = $client->getFolderLinks( array(
 	'page' => 2,
 ));
 ```
 
 #####Get Folder Link
-```code
+```php
 $response = $client->getFolderLink( array(
 	'id' => 290503,
 ));
 ```
 
 #####Create Folder Link
-```code
+```php
 $response = $client->createFolderLink( array(
 	'folder_id' => 290503,
 	'allows_download' => true,
@@ -175,7 +175,7 @@ $response = $client->createFolderLink( array(
 ```
 
 #####Delete Folder Link
-```code
+```php
 $response = $client->deleteFolderLink( array(
 	'id' => 290503,
 ));
@@ -184,21 +184,21 @@ $response = $client->deleteFolderLink( array(
 ###Invited Users
 [Image Relay API: Invited Users](https://github.com/imagerelay/API/blob/master/sections/invited_users.md)
 #####Get Invited Users
-```code
+```php
 $response = $client->getInvitedUsers( array(
 	'page' => 2,
 ));
 ```
 
 #####Get Invited User
-```code
+```php
 $response = $client->getInvitedUser( array(
 	'id' => 290503,
 ));
 ```
 
 #####Invite New User
-```code
+```php
 $response = $client->inviteNewUser( array(
 	'first_name' => 'First Name',
 	'last_name' => 'Last Name',
@@ -209,7 +209,7 @@ $response = $client->inviteNewUser( array(
 ```
 
 #####Delete Invited User
-```code
+```php
 $response = $client->deleteInvitedUser( array(
 	'id' => 290503,
 ));
@@ -218,15 +218,46 @@ $response = $client->deleteInvitedUser( array(
 ###Permissions
 [Image Relay API: Permissions](https://github.com/imagerelay/api/blob/master/sections/permissions.md#permissions)
 #####Get Permissions
-```code
+```php
 $response = $client->getPermissions( array(
 	'page' => 2,
 ));
 ```
 
 #####Get Permission
-```code
+```php
 $response = $client->getPermission( array(
+	'id' => 290503,
+));
+```
+
+###Quick Links
+[Image Relay API: Folder Links](https://github.com/imagerelay/API/blob/master/sections/quick_links.md)
+#####Get Quick Links
+```php
+$response = $client->getQuickLinks( array(
+	'page' => 2,
+));
+```
+
+#####Get Quick Link
+```php
+$response = $client->getQuickLink( array(
+	'id' => 290503,
+));
+```
+
+#####Create Quick Link
+```php
+$response = $client->createQuickLink( array(
+	'asset_id' => 290503,
+	'purpose' => 'Download for spring catalog images',
+));
+```
+
+#####Delete Quick Link
+```php
+$response = $client->deleteQuickLink( array(
 	'id' => 290503,
 ));
 ```

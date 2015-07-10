@@ -395,6 +395,115 @@
                     )
                 )
             ),
+
+            /* QUICK LINKS */
+            /* getQuickLinks */
+            'getQuickLinks' => array(
+                'httpMethod' => 'GET',
+                'uri' => 'quick_links.json',
+                'summary' => 'Returns list of folder links associated with the account' . PHP_EOL . '[ImageRelay API: Quick Links](https://github.com/imagerelay/api/blob/master/sections/quick_links.md#get-quick-links)',
+                'parameters' => array(
+                    'page' => array(
+                        'location' => 'query',
+                        'description' => 'used to paginate pages.',
+                        'type' => 'integer',
+                        'required' => false,
+                    )
+                )
+            ),
+
+            /* getQuickLink */
+            'getFolderLink' => array(
+                'httpMethod' => 'GET',
+                'uri' => 'quick_links/{id}.json',
+                'summary' => 'Get specified quick link.' . PHP_EOL . '[ImageRelay API: Quick Links](https://github.com/imagerelay/api/blob/master/sections/quick_links.md#get-quick-link)',
+                'parameters' => array(
+                    'id' => array(
+                        'location' => 'uri',
+                        'description' => 'Quick Link ID',
+                        'type' => 'integer',
+                        'required' => true,
+                    )
+                )
+            ),
+
+            /* createQuickLink */
+            'createQuickLink' => array(
+                'httpMethod' => 'POST',
+                'uri' => 'quick_links.json',
+                'summary' => 'Create a new quick link.' . PHP_EOL . '[ImageRelay API: Quick Links](https://github.com/imagerelay/api/blob/master/sections/quick_links.md#create-quick-link)',
+                'parameters' => array(
+                    'asset_id' => array(
+                        'location' => 'json',
+                        'description' => 'Asset ID that the link will be created for',
+                        'type' => 'integer',
+                        'required' => true,
+                    ),
+                    'format' => array(
+                        'location' => 'json',
+                        'description' => 'format of file type.  ex: jpg/png/gif/avi/mov/etc',
+                        'type' => 'string'
+                        'required' => false,
+                    ),
+                    'expires' => array (
+                        'location' => 'json',
+                        'description' => 'Time/Date which sets expiration format YYYY-MM-DD',
+                        'type' => 'string'
+                        'required' => false,
+                    ),
+                    'max_width' => array(
+                        'location' => 'json',
+                        'description' => 'set custom image size max width',
+                        'type' => 'string'
+                        'required' => false,
+                    ),
+                    'max_height' => array (
+                        'location' => 'json',
+                        'description' => 'set custom image size max height',
+                        'type' => 'string'
+                        'required' => false,
+                    ),
+                    'dpi' => array (
+                        'location' => 'json',
+                        'description' => 'set dots per inch',
+                        'type' => 'integer'
+                        'required' => false,
+                    ),
+                    'disposition' => array (
+                        'location' => 'json',
+                        'description' => 'set content-disposition inline or attachment',
+                        'type' => 'string'
+                        'required' => false,
+                    ),
+                    'color_format' => array (
+                        'location' => 'json',
+                        'description' => 'set color format.  ex: rgb/cmyk',
+                        'type' => 'string'
+                        'required' => false,
+                    ),
+                    'purpose' => array (
+                        'location' => 'json',
+                        'description' => 'purpose for the quick link/tracking data',
+                        'type' => 'string'
+                        'required' => true,
+                    ),
+                )
+            ),
+
+            /* deleteFolderLink */
+            'deleteQuickLink' => array(
+                'httpMethod' => 'DELETE',
+                'uri' => 'quick_links/{id}.json',
+                'summary' => 'Delete specified quick link.' . PHP_EOL . '[ImageRelay API: Quick Links](https://github.com/imagerelay/api/blob/master/sections/quick_links.md#delete-quick-link)',
+                'parameters' => array(
+                    'id' => array(
+                        'location' => 'uri',
+                        'description' => 'Folder Link ID',
+                        'type' => 'integer',
+                        'required' => true,
+                    )
+                )
+            ),
         )
     );
 ?>
