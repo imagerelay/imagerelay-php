@@ -232,7 +232,7 @@ $response = $client->getPermission( array(
 ```
 
 ###Quick Links
-[Image Relay API: Folder Links](https://github.com/imagerelay/API/blob/master/sections/quick_links.md)
+[Image Relay API: Quick Links](https://github.com/imagerelay/API/blob/master/sections/quick_links.md)
 #####Get Quick Links
 ```php
 $response = $client->getQuickLinks( array(
