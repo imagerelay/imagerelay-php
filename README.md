@@ -13,7 +13,7 @@ We recommend using composer to manage dependencies and installation of the Image
 ```
 
 ##Usage
-To use the library you only need to have an Image Relay account with proper permissions to complete the API actions. 
+To use the library you only need to have an Image Relay account with proper permissions to complete the API actions. You will need to require once the vender/autoload.php file provided by composer.
 
 #####Authorization with username and password
 ```php
