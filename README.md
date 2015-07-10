@@ -143,3 +143,35 @@ $response = $client->getFileType( array(
 	'id' => 290503,
 ));
 ```
+
+###Folder Links
+
+#####Get Folder Links
+```code
+$response = $client->getFolderLinks();
+```
+
+#####Get Folder Link
+```code
+$response = $client->getFolderLink( array(
+	'id' => 290503,
+));
+```
+
+#####Create Folder Link
+```code
+$response = $client->createFolderLink( array(
+	'folder_id' => 290503,
+	'allows_download' => true,
+	'expires_on' => '2015-07-15',
+	'show_tracking' => true,
+	'purpose' => 'Download for spring catalog images',
+));
+```
+
+#####Delete Folder Link
+```code
+$response = $client->deleteFolderLink( array(
+	'id' => 290503,
+));
+```

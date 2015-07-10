@@ -178,11 +178,88 @@
             'getFileType' => array(
                 'httpMethod' => 'GET',
                 'uri' => 'file_types/{id}.json',
-                'summary' => 'Get specified file type.' . PHP_EOL . '[ImageRelay API: Folders](https://github.com/imagerelay/api/blob/master/sections/file_types.md#get-file-type)',
+                'summary' => 'Get specified file type.' . PHP_EOL . '[ImageRelay API: File Types](https://github.com/imagerelay/api/blob/master/sections/file_types.md#get-file-type)',
                 'parameters' => array(
                     'id' => array(
                         'location' => 'uri',
                         'description' => 'File Type ID',
+                        'type' => 'integer',
+                        'required' => true,
+                    )
+                )
+            ),
+
+            /* FOLDER LINKS */
+            /* getFolderLinks */
+            'getFolderLinks' => array(
+                'httpMethod' => 'GET',
+                'uri' => 'folder_links.json',
+                'summary' => 'Returns list of folder links associated with the account' . PHP_EOL . '[ImageRelay API: Folder Links](https://github.com/imagerelay/api/blob/master/sections/folder_links.md#get-folder-links-)',
+            ),
+
+            /* getFolderLink */
+            'getFolderLink' => array(
+                'httpMethod' => 'GET',
+                'uri' => 'folder_links/{id}.json',
+                'summary' => 'Get specified folder link.' . PHP_EOL . '[ImageRelay API: Folder Links](https://github.com/imagerelay/api/blob/master/sections/folder_links.md#get-folder-link)',
+                'parameters' => array(
+                    'id' => array(
+                        'location' => 'uri',
+                        'description' => 'Folder Link ID',
+                        'type' => 'integer',
+                        'required' => true,
+                    )
+                )
+            ),
+
+            /* createFolderLink */
+            'createFolderLink' => array(
+                'httpMethod' => 'POST',
+                'uri' => 'folder_links.json',
+                'summary' => 'Create a new folder link.' . PHP_EOL . '[ImageRelay API: Folder Links](https://github.com/imagerelay/api/blob/master/sections/folder_links.md#create-folder-links)',
+                'parameters' => array(
+                    'folder_id' => array(
+                        'location' => 'json',
+                        'description' => 'Folder ID that the link will be created for',
+                        'type' => 'integer',
+                        'required' => true,
+                    ),
+                    'allows_download' => array(
+                        'location' => 'json',
+                        'description' => 'Boolean that sets a flag so that files can be downloaded or not from the folder link',
+                        'type' => 'boolean'
+                        'required' => true,
+                    ),
+                    'expires_on' => array (
+                        'location' => 'json',
+                        'description' => 'Time/Date which sets expiration format YYYY-MM-DD',
+                        'type' => 'string'
+                        'required' => false,
+                    ),
+                    'show_tracking' => array(
+                        'location' => 'json',
+                        'description' => 'Boolean that sets a flag so that files downloaded will have tracking data or not.',
+                        'type' => 'boolean'
+                        'required' => true,
+                    ),
+                    'purpose' => array (
+                        'location' => 'json',
+                        'description' => 'Reason for creating the folder link',
+                        'type' => 'string'
+                        'required' => true,
+                    ),
+                )
+            ),
+
+            /* deleteFolderLink */
+            'deleteFolderLink' => array(
+                'httpMethod' => 'DELETE',
+                'uri' => 'folder_links/{id}.json',
+                'summary' => 'Get specified folder link.' . PHP_EOL . '[ImageRelay API: Folder Links](https://github.com/imagerelay/api/blob/master/sections/folder_links.md#delete-folder-links)',
+                'parameters' => array(
+                    'id' => array(
+                        'location' => 'uri',
+                        'description' => 'Folder Link ID',
                         'type' => 'integer',
                         'required' => true,
                     )
