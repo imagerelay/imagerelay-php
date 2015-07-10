@@ -294,7 +294,7 @@ $response = $client->deleteUploadLink( array(
 ```
 
 ###Users
-[Image Relay API: Permissions](https://github.com/imagerelay/api/blob/master/sections/users.md)
+[Image Relay API: Users](https://github.com/imagerelay/api/blob/master/sections/users.md)
 #####Get Users
 ```php
 $response = $client->getUsers( array(
