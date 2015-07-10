@@ -292,3 +292,19 @@ $response = $client->deleteUploadLink( array(
 	'id' => 290503,
 ));
 ```
+
+###Users
+[Image Relay API: Permissions](https://github.com/imagerelay/api/blob/master/sections/users.md)
+#####Get Users
+```php
+$response = $client->getUsers( array(
+	'page' => 2,
+));
+```
+
+#####Get User
+```php
+$response = $client->getUser( array(
+	'id' => 290503,
+));
+```

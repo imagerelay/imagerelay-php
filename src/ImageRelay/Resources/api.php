@@ -385,7 +385,7 @@
             'getPermission' => array(
                 'httpMethod' => 'GET',
                 'uri' => 'permissions/{id}.json',
-                'summary' => 'Get specified permission.' . PHP_EOL . '[ImageRelay API: Invited Users](https://github.com/imagerelay/api/blob/master/sections/permissions.md#get-permission)',
+                'summary' => 'Get specified permission.' . PHP_EOL . '[ImageRelay API: Permissions](https://github.com/imagerelay/api/blob/master/sections/permissions.md#get-permission)',
                 'parameters' => array(
                     'id' => array(
                         'location' => 'uri',
@@ -572,6 +572,37 @@
                     'id' => array(
                         'location' => 'uri',
                         'description' => 'Upload Link ID',
+                        'type' => 'integer',
+                        'required' => true,
+                    )
+                )
+            ),
+
+            /* USERS */
+            /* getUsers */
+            'getUsers' => array(
+                'httpMethod' => 'GET',
+                'uri' => 'users.json',
+                'summary' => 'Returns list of users associated with the account' . PHP_EOL . '[ImageRelay API: Users](https://github.com/imagerelay/api/blob/master/sections/users.md#get-users)',
+                'parameters' => array(
+                    'page' => array(
+                        'location' => 'query',
+                        'description' => 'used to paginate pages.',
+                        'type' => 'integer',
+                        'required' => false,
+                    )
+                )
+            ),
+
+            /* getUser */
+            'getUser' => array(
+                'httpMethod' => 'GET',
+                'uri' => 'users/{id}.json',
+                'summary' => 'Get specified user.' . PHP_EOL . '[ImageRelay API: Users](https://github.com/imagerelay/api/blob/master/sections/users.md#get-user)',
+                'parameters' => array(
+                    'id' => array(
+                        'location' => 'uri',
+                        'description' => 'User ID',
                         'type' => 'integer',
                         'required' => true,
                     )
