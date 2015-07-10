@@ -261,3 +261,34 @@ $response = $client->deleteQuickLink( array(
 	'id' => 290503,
 ));
 ```
+
+###Upload Links
+[Image Relay API: Upload Links](https://github.com/imagerelay/API/blob/master/sections/upload_links.md)
+#####Get Upload Links
+```php
+$response = $client->getUploadLinks( array(
+	'page' => 2,
+));
+```
+
+#####Get Upload Link
+```php
+$response = $client->getUploadLink( array(
+	'id' => 290503,
+));
+```
+
+#####Create Upload Link
+```php
+$response = $client->createUploadLink( array(
+	'folder_id' => 290503,
+	'purpose' => 'Download for spring catalog images',
+));
+```
+
+#####Delete Upload Link
+```php
+$response = $client->deleteUploadLink( array(
+	'id' => 290503,
+));
+```

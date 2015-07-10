@@ -413,7 +413,7 @@
             ),
 
             /* getQuickLink */
-            'getFolderLink' => array(
+            'getQuickLink' => array(
                 'httpMethod' => 'GET',
                 'uri' => 'quick_links/{id}.json',
                 'summary' => 'Get specified quick link.' . PHP_EOL . '[ImageRelay API: Quick Links](https://github.com/imagerelay/api/blob/master/sections/quick_links.md#get-quick-link)',
@@ -490,7 +490,7 @@
                 )
             ),
 
-            /* deleteFolderLink */
+            /* deleteQuickLink */
             'deleteQuickLink' => array(
                 'httpMethod' => 'DELETE',
                 'uri' => 'quick_links/{id}.json',
@@ -499,6 +499,79 @@
                     'id' => array(
                         'location' => 'uri',
                         'description' => 'Folder Link ID',
+                        'type' => 'integer',
+                        'required' => true,
+                    )
+                )
+            ),
+
+            /* UPLOAD LINKS */
+            /* getUploadLinks */
+            'getUploadLinks' => array(
+                'httpMethod' => 'GET',
+                'uri' => 'upload_links.json',
+                'summary' => 'Returns list of upload links associated with the account' . PHP_EOL . '[ImageRelay API: Upload Links](https://github.com/imagerelay/api/blob/master/sections/upload_links.md#get-upload-links)',
+                'parameters' => array(
+                    'page' => array(
+                        'location' => 'query',
+                        'description' => 'used to paginate pages.',
+                        'type' => 'integer',
+                        'required' => false,
+                    )
+                )
+            ),
+
+            /* getUploadLink */
+            'getUploadLink' => array(
+                'httpMethod' => 'GET',
+                'uri' => 'upload_links/{id}.json',
+                'summary' => 'Get specified upload link.' . PHP_EOL . '[ImageRelay API: Upload Links](https://github.com/imagerelay/api/blob/master/sections/upload_links.md#get-upload-link)',
+                'parameters' => array(
+                    'id' => array(
+                        'location' => 'uri',
+                        'description' => 'Upload Link ID',
+                        'type' => 'integer',
+                        'required' => true,
+                    )
+                )
+            ),
+
+            /* createUploadLink */
+            'createUploadLInk' => array(
+                'httpMethod' => 'POST',
+                'uri' => 'upload_links.json',
+                'summary' => 'Create a new quick link.' . PHP_EOL . '[ImageRelay API: Upload Links](https://github.com/imagerelay/api/blob/master/sections/upload_links.md#create-upload-link)',
+                'parameters' => array(
+                    'folder_id' => array(
+                        'location' => 'json',
+                        'description' => 'Folder ID that the uploaded files will be saved in.',
+                        'type' => 'integer',
+                        'required' => true,
+                    ),
+                    'expires_on' => array (
+                        'location' => 'json',
+                        'description' => 'Time/Date which sets expiration format YYYY-MM-DD',
+                        'type' => 'string'
+                        'required' => false,
+                    ),
+                    'purpose' => array (
+                        'location' => 'json',
+                        'description' => 'purpose for the upload link/tracking data',
+                        'type' => 'string'
+                        'required' => true,
+                    ),
+                )
+            ),
+
+            /* deleteUploadLink */
+            'deleteUploadLink' => array(
+                'httpMethod' => 'DELETE',
+                'uri' => 'upload_links/{id}.json',
+                'summary' => 'Delete specified upload link.' . PHP_EOL . '[ImageRelay API: Upload Links](https://github.com/imagerelay/api/blob/master/sections/upload_links.md#delete-upload-link)',
+                'parameters' => array(
+                    'id' => array(
+                        'location' => 'uri',
+                        'description' => 'Upload Link ID',
                         'type' => 'integer',
                         'required' => true,
                     )
