@@ -62,6 +62,7 @@ When authorizing with oauth you will need to use one of the many existing librar
 ```code
 	$response = $client->getFiles( array(
 		'folder_id' => 8363117,
+		'page' => 2,
 	));
 ```
 
@@ -148,7 +149,9 @@ $response = $client->getFileType( array(
 
 #####Get Folder Links
 ```code
-$response = $client->getFolderLinks();
+$response = $client->getFolderLinks( array(
+	'page' => 2,
+));
 ```
 
 #####Get Folder Link
@@ -175,3 +178,38 @@ $response = $client->deleteFolderLink( array(
 	'id' => 290503,
 ));
 ```
+
+###Invited Users
+
+#####Get Invited Users
+```code
+$response = $client->getInvitedUsers( array(
+	'page' => 2,
+));
+```
+
+#####Get Invited User
+```code
+$response = $client->getInvitedUser( array(
+	'id' => 290503,
+));
+```
+
+#####Invite New User
+```code
+$response = $client->inviteNewUser( array(
+	'first_name' => 'First Name',
+	'last_name' => 'Last Name',
+	'email' => 'example@imagerelay.com',
+	'company' => 'Image Relay',
+	'permission_id' => 167,
+));
+```
+
+#####Delete Invited User
+```code
+$response = $client->deleteInvitedUser( array(
+	'id' => 290503,
+));
+```
+

@@ -21,6 +21,12 @@
                         'description' => 'Will return files uploaded to designated folder.  Date format should be YYYY-MM-DD HH:MM:SS -- you can leave off the time if you want to start at the beginning of the day.',
                         'type' => 'string',
                         'required' => false,
+                    ),
+                    'page' => array(
+                        'location' => 'json',
+                        'description' => 'used to paginate pages.',
+                        'type' => 'integer',
+                        'required' => false,
                     )
                 )
             ),
@@ -195,6 +201,14 @@
                 'httpMethod' => 'GET',
                 'uri' => 'folder_links.json',
                 'summary' => 'Returns list of folder links associated with the account' . PHP_EOL . '[ImageRelay API: Folder Links](https://github.com/imagerelay/api/blob/master/sections/folder_links.md#get-folder-links-)',
+                'parameters' => array(
+                    'page' => array(
+                        'location' => 'json',
+                        'description' => 'used to paginate pages.',
+                        'type' => 'integer',
+                        'required' => false,
+                    )
+                )
             ),
 
             /* getFolderLink */
@@ -255,11 +269,96 @@
             'deleteFolderLink' => array(
                 'httpMethod' => 'DELETE',
                 'uri' => 'folder_links/{id}.json',
-                'summary' => 'Get specified folder link.' . PHP_EOL . '[ImageRelay API: Folder Links](https://github.com/imagerelay/api/blob/master/sections/folder_links.md#delete-folder-links)',
+                'summary' => 'Delete specified folder link.' . PHP_EOL . '[ImageRelay API: Folder Links](https://github.com/imagerelay/api/blob/master/sections/folder_links.md#delete-folder-links)',
                 'parameters' => array(
                     'id' => array(
                         'location' => 'uri',
                         'description' => 'Folder Link ID',
+                        'type' => 'integer',
+                        'required' => true,
+                    )
+                )
+            ),
+
+            /* INVITED USERS */
+            /* getInvitedUsers */
+            'getInvitedUsers' => array(
+                'httpMethod' => 'GET',
+                'uri' => 'invited_users.json',
+                'summary' => 'Returns list of invited users associated with the account' . PHP_EOL . '[ImageRelay API: Invited Users](https://github.com/imagerelay/api/blob/master/sections/invited_users.md#get-invited-users-)',
+                'parameters' => array(
+                    'page' => array(
+                        'location' => 'json',
+                        'description' => 'used to paginate pages.',
+                        'type' => 'integer',
+                        'required' => false,
+                    )
+                )
+            ),
+
+            /* getInvitedUser */
+            'getInvitedUser' => array(
+                'httpMethod' => 'GET',
+                'uri' => 'invited_users/{id}.json',
+                'summary' => 'Get specified invited user.' . PHP_EOL . '[ImageRelay API: Invited Users](https://github.com/imagerelay/api/blob/master/sections/invited_users.md#get-invited-users-)',
+                'parameters' => array(
+                    'id' => array(
+                        'location' => 'uri',
+                        'description' => 'Invited User ID',
+                        'type' => 'integer',
+                        'required' => true,
+                    )
+                )
+            ),
+
+            /* inviteNewUser */
+            'inviteNewUser' => array(
+                'httpMethod' => 'POST',
+                'uri' => 'invited_users.json',
+                'summary' => 'Invites a new user to your account.' . PHP_EOL . '[ImageRelay API: Invited Users](https://github.com/imagerelay/api/blob/master/sections/invited_users.md#invite-new-user)',
+                'parameters' => array(
+                    'first_name' => array(
+                        'location' => 'json',
+                        'description' => 'First Name',
+                        'type' => 'string',
+                        'required' => true,
+                    ),
+                    'last_name' => array(
+                        'location' => 'json',
+                        'description' => 'Last Name',
+                        'type' => 'string',
+                        'required' => true,
+                    ),
+                    'email' => array(
+                        'location' => 'json',
+                        'description' => 'email address',
+                        'type' => 'string',
+                        'required' => true,
+                    ),
+                    'company' => array(
+                        'location' => 'json',
+                        'description' => 'Company Name',
+                        'type' => 'string',
+                        'required' => true,
+                    ),
+                    'permission_id' => array(
+                        'location' => 'json',
+                        'description' => 'Permission Group ID to assign them to.',
+                        'type' => 'integer',
+                        'required' => true,
+                    ),
+                )
+            ),
+
+            /* deleteInvitedUser */
+            'deleteInvitedUser' => array(
+                'httpMethod' => 'DELETE',
+                'uri' => 'invited_users/{id}.json',
+                'summary' => 'Delete specified invited user.' . PHP_EOL . '[ImageRelay API: Invited Users](https://github.com/imagerelay/api/blob/master/sections/invited_users.md#delete-invited-user)',
+                'parameters' => array(
+                    'id' => array(
+                        'location' => 'uri',
+                        'description' => 'Invited User ID',
                         'type' => 'integer',
                         'required' => true,
                     )
