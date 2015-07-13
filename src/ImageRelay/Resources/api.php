@@ -241,25 +241,25 @@
                     'allows_download' => array(
                         'location' => 'json',
                         'description' => 'Boolean that sets a flag so that files can be downloaded or not from the folder link',
-                        'type' => 'boolean'
+                        'type' => 'boolean',
                         'required' => true,
                     ),
                     'expires_on' => array (
                         'location' => 'json',
                         'description' => 'Time/Date which sets expiration format YYYY-MM-DD',
-                        'type' => 'string'
+                        'type' => 'string',
                         'required' => false,
                     ),
                     'show_tracking' => array(
                         'location' => 'json',
                         'description' => 'Boolean that sets a flag so that files downloaded will have tracking data or not.',
-                        'type' => 'boolean'
+                        'type' => 'boolean',
                         'required' => true,
                     ),
                     'purpose' => array (
                         'location' => 'json',
                         'description' => 'Reason for creating the folder link',
-                        'type' => 'string'
+                        'type' => 'string',
                         'required' => true,
                     ),
                 )
