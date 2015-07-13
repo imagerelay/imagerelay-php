@@ -870,6 +870,79 @@
                     )
                 )
             ),
+
+            /* UPLOADS */
+            /* createUploadJob */
+            'createUploadJob' => array(
+                'httpMethod' => 'POST',
+                'uri' => 'upload_jobs.json',
+                'summary' => 'Create Upload Job.' . PHP_EOL . '[ImageRelay API: Upload Job](https://github.com/imagerelay/api/blob/master/sections/uploads.md#create-upload-job)',
+                'parameters' => array(
+                    'folder_id' => array(
+                        'location' => 'json',
+                        'description' => 'Folder ID where file will be uploaded.',
+                        'type' => 'integer',
+                        'required' => true,
+                    ),
+                    'file_type_id' => array(
+                        'location' => 'json',
+                        'description' => 'File Type ID to assign to the uploaded files.',
+                        'type' => 'integer',
+                        'required' => true,
+                    ),
+                    'files' => array(
+                        'location' => 'json',
+                        'description' => 'File Data',
+                        'type' => array( 'array', 'object'),
+                        'required' => true,
+                    ),
+                    'terms' => array(
+                        'location' => 'json',
+                        'description' => 'Metaterms',
+                        'type' => array( 'array', 'object'),
+                        'required' => true,
+                    ),
+                )
+            ),
+
+            /* createFileChunk */
+            'createUploadJob' => array(
+                'httpMethod' => 'POST',
+                'uri' => 'upload_jobs/{upload_job_id}/files/{file_id}/chunks/{chunk_number}.json',
+                'summary' => 'Create Upload Job.' . PHP_EOL . '[ImageRelay API: Upload Job](https://github.com/imagerelay/api/blob/master/sections/uploads.md#create-upload-job)',
+                'parameters' => array(
+                    'mimeType' => array(
+                        'location' => 'header',
+                        'sentAs' => 'Content-Type',
+                        'type' => 'asax',
+                        'required', true
+                    ),
+                    'upload_job_id' => array(
+                        'location' => 'uri',
+                        'description' => 'Upload Job ID returned from createUploadJob.',
+                        'type' => 'integer',
+                        'required' => true,
+                    ),
+                    'file_id' => array(
+                        'location' => 'uri',
+                        'description' => 'File ID returned from createUploadJob.',
+                        'type' => 'integer',
+                        'required' => true,
+                    ),
+                    'chunk_number' => array(
+                        'location' => 'uri',
+                        'description' => 'Cunk Number',
+                        'type' => 'integer',
+                        'required' => true,
+                    ),
+                    'data' => array(
+                        'location' => 'body',
+                        'description' => 'binary data',
+                        'type' => 'any',
+                        'required' => true,
+                    ),
+                )
+            ),
         )
     );
 ?>

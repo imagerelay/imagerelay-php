@@ -334,7 +334,7 @@ $response = $client->getSupportedWebhooks();
 ```
 
 ###KEYWORDING
-[Image Relay API: Keyword Sets](https://github.com/imagerelay/API/blob/master/sections/keywording.md)
+[Image Relay API: Keywording](https://github.com/imagerelay/API/blob/master/sections/keywording.md)
 
 ####Keyword Sets
 #####Get Keyword Sets
