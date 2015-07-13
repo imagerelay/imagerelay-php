@@ -12,6 +12,17 @@ We recommend using composer to manage dependencies and installation of the Image
 	$ php composer.phar require imagerelay/imagerelay-php
 ```
 
+#####Edit the following line to set the correct API URL
+###### /vendor/imagerelay/imagerelay-php/src/ImageRelay/ImageRelayClient.php
+
+Update the imagerelay_url field with your correct subdomain or custom domain name.
+
+```php
+$default = array(
+    'base_url'          => 'https://{imagerelay_url}/api/v2/',
+    'imagerelay_url'    => 'subdomain.imagerelay.com',
+);
+```
 ##Usage
 To use the library you only need to have an Image Relay account with proper permissions to complete the API actions. You will need to require once the vender/autoload.php file provided by composer.
 
