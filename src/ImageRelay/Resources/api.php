@@ -442,49 +442,49 @@
                     'format' => array(
                         'location' => 'json',
                         'description' => 'format of file type.  ex: jpg/png/gif/avi/mov/etc',
-                        'type' => 'string'
+                        'type' => 'string',
                         'required' => false,
                     ),
                     'expires' => array (
                         'location' => 'json',
                         'description' => 'Time/Date which sets expiration format YYYY-MM-DD',
-                        'type' => 'string'
+                        'type' => 'string',
                         'required' => false,
                     ),
                     'max_width' => array(
                         'location' => 'json',
                         'description' => 'set custom image size max width',
-                        'type' => 'string'
+                        'type' => 'string',
                         'required' => false,
                     ),
                     'max_height' => array (
                         'location' => 'json',
                         'description' => 'set custom image size max height',
-                        'type' => 'string'
+                        'type' => 'string',
                         'required' => false,
                     ),
                     'dpi' => array (
                         'location' => 'json',
                         'description' => 'set dots per inch',
-                        'type' => 'integer'
+                        'type' => 'integer',
                         'required' => false,
                     ),
                     'disposition' => array (
                         'location' => 'json',
                         'description' => 'set content-disposition inline or attachment',
-                        'type' => 'string'
+                        'type' => 'string',
                         'required' => false,
                     ),
                     'color_format' => array (
                         'location' => 'json',
                         'description' => 'set color format.  ex: rgb/cmyk',
-                        'type' => 'string'
+                        'type' => 'string',
                         'required' => false,
                     ),
                     'purpose' => array (
                         'location' => 'json',
                         'description' => 'purpose for the quick link/tracking data',
-                        'type' => 'string'
+                        'type' => 'string',
                         'required' => true,
                     ),
                 )
@@ -551,13 +551,13 @@
                     'expires_on' => array (
                         'location' => 'json',
                         'description' => 'Time/Date which sets expiration format YYYY-MM-DD',
-                        'type' => 'string'
+                        'type' => 'string',
                         'required' => false,
                     ),
                     'purpose' => array (
                         'location' => 'json',
                         'description' => 'purpose for the upload link/tracking data',
-                        'type' => 'string'
+                        'type' => 'string',
                         'required' => true,
                     ),
                 )
@@ -647,13 +647,13 @@
                     'action' => array (
                         'location' => 'json',
                         'description' => 'The action that will be watched for on the associated resource',
-                        'type' => 'string'
+                        'type' => 'string',
                         'required' => true,
                     ),
                     'url' => array (
                         'location' => 'json',
                         'description' => 'callback url where the even details will be delivered.',
-                        'type' => 'string'
+                        'type' => 'string',
                         'required' => true,
                     ),
                 )
