@@ -426,6 +426,7 @@ $response = $client->deleteKeyword( array(
 ```
 
 ###Uploads
+[Image Relay API: Uploads](https://github.com/imagerelay/api/blob/master/sections/uploads.md)
 #####createUploadJob
 ```php
 $uploadJob = $client->createUploadJob( array(
