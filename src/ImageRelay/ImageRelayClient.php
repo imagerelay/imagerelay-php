@@ -7,6 +7,7 @@ use Guzzle\Service\Client;
 use Guzzle\Service\Description\ServiceDescription;
 use Guzzle\Common\Event;
 use Guzzle\Common\Exception\InvalidArgumentException;
+use GuzzleHttp\Exception\RequestException;
 
 class ImageRelayClient extends Client
 {

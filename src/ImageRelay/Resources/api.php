@@ -884,6 +884,12 @@
                         'type' => 'integer',
                         'required' => true,
                     ),
+                    'prefix' => array(
+                        'location' => 'json',
+                        'description' => 'Folder ID where file will be uploaded.',
+                        'type' => 'string',
+                        'required' => false,
+                    ),
                     'file_type_id' => array(
                         'location' => 'json',
                         'description' => 'File Type ID to assign to the uploaded files.',
@@ -908,15 +914,9 @@
             /* createFileChunk */
             'createFileChunk' => array(
                 'httpMethod' => 'POST',
-                'uri' => 'upload_jobs/{upload_job_id}/files/{file_id}/chunks/{chunk_number}.json',
-                'summary' => 'Create Upload Job.' . PHP_EOL . '[ImageRelay API: Upload Job](https://github.com/imagerelay/api/blob/master/sections/uploads.md#create-upload-job)',
+                'uri' => 'upload_jobs/{upload_job_id}/files/{file_id}/chunks/{chunk_id}.json',
+                'summary' => 'Upload file chunk.' . PHP_EOL . '[ImageRelay API: Upload Job](https://github.com/imagerelay/api/blob/master/sections/uploads.md#create-upload-job)',
                 'parameters' => array(
-                    'mimeType' => array(
-                        'location' => 'header',
-                        'sentAs' => 'Content-Type',
-                        'type' => 'asax',
-                        'required', true
-                    ),
                     'upload_job_id' => array(
                         'location' => 'uri',
                         'description' => 'Upload Job ID returned from createUploadJob.',
@@ -929,17 +929,24 @@
                         'type' => 'integer',
                         'required' => true,
                     ),
-                    'chunk_number' => array(
+                    'chunk_id' => array(
                         'location' => 'uri',
-                        'description' => 'Cunk Number',
+                        'description' => 'Chunk Number',
                         'type' => 'integer',
                         'required' => true,
                     ),
+                    'mimeType' => array(
+                        'location'    => 'header',
+                        'sentAs'      => 'Content-Type',
+                        'description' => 'The content type of the data',
+                        'type'        => 'string',
+                        'required'    => true,
+                    ),
                     'data' => array(
-                        'location' => 'body',
-                        'description' => 'binary data',
-                        'type' => 'any',
-                        'required' => true,
+                        'location'    => 'body',
+                        'description' => 'The attachment\'s binary data',
+                        'type'        => 'any',
+                        'required'    => true,
                     ),
                 )
             ),

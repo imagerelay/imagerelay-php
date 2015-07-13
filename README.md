@@ -413,3 +413,33 @@ $response = $client->deleteKeyword( array(
 	'keyword_id' => 21424,
 ));
 ```
+
+###Uploads
+#####createUploadJob
+```php
+$uploadJob = $client->createUploadJob( array(
+	'folder_id' => 291692,
+	'file_type_id' => 1464,
+	'files' => array ( array (
+		'name' => 'two_frogs.jpg',
+		'size' => '222222222'
+		)
+	),
+	'terms' => array ( array (
+		'term_id' => '5802',
+		'value' => 'Testing 123'
+		)
+	),
+));
+```
+
+#####createFileChunk
+```php
+$upload = $client->createFileChunk( array(
+	'upload_job_id' => $uploadJob['id'],
+	'file_id' => $uploadJob['files'][0]['id'],
+	'chunk_id' => 1,
+	'mimeType' => 'application/octet-stream',
+	'data' => file_get_contents($_SERVER['DOCUMENT_ROOT'].'/two_frogs.jpg'),
+));
+```
