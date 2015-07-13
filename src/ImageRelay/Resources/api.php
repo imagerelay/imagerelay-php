@@ -906,7 +906,7 @@
             ),
 
             /* createFileChunk */
-            'createUploadJob' => array(
+            'createFileChunk' => array(
                 'httpMethod' => 'POST',
                 'uri' => 'upload_jobs/{upload_job_id}/files/{file_id}/chunks/{chunk_number}.json',
                 'summary' => 'Create Upload Job.' . PHP_EOL . '[ImageRelay API: Upload Job](https://github.com/imagerelay/api/blob/master/sections/uploads.md#create-upload-job)',
