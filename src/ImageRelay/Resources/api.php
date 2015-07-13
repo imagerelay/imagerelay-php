@@ -681,6 +681,195 @@
                 'summary' => 'Returns a list of all supported webhooks, their resource, and actions.' . PHP_EOL . '[ImageRelay API: Webhooks](https://github.com/imagerelay/api/blob/master/sections/webhooks.md#supported-webhooks)',
             ),
 
+            /* KEYWORDING */
+            /* KEYWORD SETS */
+            /* getKeywordSets */
+            'getKeywordSets' => array(
+                'httpMethod' => 'GET',
+                'uri' => 'keyword_sets.json',
+                'summary' => 'Returns a list of all Keyword Sets' . PHP_EOL . '[ImageRelay API: Keyword Sets](https://github.com/imagerelay/API/blob/master/sections/keywording.md#get-keyword-sets)',
+                'parameters' => array(
+                    'page' => array(
+                        'location' => 'query',
+                        'description' => 'used to paginate pages.',
+                        'type' => 'integer',
+                        'required' => false,
+                    )
+                )
+            ),
+
+            /* getKeywordSet */
+            'getKeywordSet' => array(
+                'httpMethod' => 'GET',
+                'uri' => 'keyword_sets/{id}.json',
+                'summary' => 'Get specified Keyword Set.' . PHP_EOL . '[ImageRelay API: Keyword Sets](https://github.com/imagerelay/API/blob/master/sections/keywording.md#get-keyword-set)',
+                'parameters' => array(
+                    'id' => array(
+                        'location' => 'uri',
+                        'description' => 'Keyword Set ID',
+                        'type' => 'integer',
+                        'required' => true,
+                    )
+                )
+            ),
+
+            /* createKeywordSet */
+            'createKeywordSet' => array(
+                'httpMethod' => 'POST',
+                'uri' => 'keyword_sets.json',
+                'summary' => 'Create Keyword Set.' . PHP_EOL . '[ImageRelay API: Keyword Sets](https://github.com/imagerelay/API/blob/master/sections/keywording.md#create-keyword-set)',
+                'parameters' => array(
+                    'name' => array(
+                        'location' => 'json',
+                        'description' => 'Keyword Set Name',
+                        'type' => 'string',
+                        'required' => true,
+                    )
+                )
+            ),
+
+
+            /* updateKeywordSet */
+            'updateKeywordSet' => array(
+                'httpMethod' => 'PUT',
+                'uri' => 'keyword_sets/{id}.json',
+                'summary' => 'Update specified Keyword Set.' . PHP_EOL . '[ImageRelay API: Keyword Set](https://github.com/imagerelay/API/blob/master/sections/keywording.md#update-keyword-set)',
+                'parameters' => array(
+                    'id' => array(
+                        'location' => 'uri',
+                        'description' => 'Keyword Set ID',
+                        'type' => 'integer',
+                        'required' => true,
+                    ),
+                    'name' => array(
+                        'location' => 'json',
+                        'description' => 'Keyword Set Name',
+                        'type' => 'string',
+                        'required' => true,
+                    )
+                )
+            ),
+
+            /* deleteKeywordSet */
+            'deleteKeywordSet' => array(
+                'httpMethod' => 'DELETE',
+                'uri' => 'keyword_sets/{id}.json',
+                'summary' => 'Delete specified Keyword Set.' . PHP_EOL . '[ImageRelay API: Keyword Set](https://github.com/imagerelay/API/blob/master/sections/keywording.md#delete-keyword-set)',
+                'parameters' => array(
+                    'id' => array(
+                        'location' => 'uri',
+                        'description' => 'Keyword Set ID',
+                        'type' => 'integer',
+                        'required' => true,
+                    )
+                )
+            ),
+
+            /* KEYWORDS */
+            /* getKeywords */
+            'getKeywords' => array(
+                'httpMethod' => 'GET',
+                'uri' => 'keyword_sets/{keyword_set_id}/keywords.json',
+                'summary' => 'Returns a list of all Keywords' . PHP_EOL . '[ImageRelay API: Keywords](https://github.com/imagerelay/API/blob/master/sections/keywording.md#get-keywords)',
+                'parameters' => array(
+                    'keyword_set_id' => array(
+                        'location' => 'uri',
+                        'description' => 'Keyword Set ID',
+                        'type' => 'integer',
+                        'required' => true,
+                    )
+                )
+            ),
+
+            /* getKeyword */
+            'getKeyword' => array(
+                'httpMethod' => 'GET',
+                'uri' => 'keyword_sets/{keyword_set_id}/keywords/{keyword_id).json',
+                'summary' => 'Get specified Keyword.' . PHP_EOL . '[ImageRelay API: Keywords](https://github.com/imagerelay/API/blob/master/sections/keywording.md#get-keyword)',
+                'parameters' => array(
+                    'keyword_set_id' => array(
+                        'location' => 'uri',
+                        'description' => 'Keyword Set ID',
+                        'type' => 'integer',
+                        'required' => true,
+                    ),
+                    'keyword_id' => array(
+                        'location' => 'uri',
+                        'description' => 'Keyword ID',
+                        'type' => 'integer',
+                        'required' => true,
+                    ),
+                )
+            ),
+
+            /* createKeyword */
+            'createKeyword' => array(
+                'httpMethod' => 'POST',
+                'uri' => 'keyword_sets/{keyword_set_id}/keywords.json',
+                'summary' => 'Create Keyword.' . PHP_EOL . '[ImageRelay API: Keywords](https://github.com/imagerelay/API/blob/master/sections/keywording.md#create-keyword)',
+                'parameters' => array(
+                    'keyword_set_id' => array(
+                        'location' => 'uri',
+                        'description' => 'Keyword Set ID',
+                        'type' => 'integer',
+                        'required' => true,
+                    ),
+                    'name' => array(
+                        'location' => 'json',
+                        'description' => 'Keyword Name',
+                        'type' => 'string',
+                        'required' => true,
+                    )
+                )
+            ),
+
+            /* updateKeyword */
+            'updateKeyword' => array(
+                'httpMethod' => 'PUT',
+                'uri' => 'keyword_sets/{keyword_set_id}/keywords/{keyword_id}.json',
+                'summary' => 'Update specified Keyword.' . PHP_EOL . '[ImageRelay API: Keyword](https://github.com/imagerelay/API/blob/master/sections/keywording.md#update-keyword)',
+                'parameters' => array(
+                    'keyword_set_id' => array(
+                        'location' => 'uri',
+                        'description' => 'Keyword Set ID',
+                        'type' => 'integer',
+                        'required' => true,
+                    ),
+                    'keyword_id' => array(
+                        'location' => 'uri',
+                        'description' => 'Keyword ID',
+                        'type' => 'integer',
+                        'required' => true,
+                    ),
+                    'name' => array(
+                        'location' => 'json',
+                        'description' => 'Keyword Set Name',
+                        'type' => 'string',
+                        'required' => true,
+                    )
+                )
+            ),
+            
+            /* deleteKeyword */
+            'deleteKeyword' => array(
+                'httpMethod' => 'DELETE',
+                'uri' => 'keyword_sets/{keyword_set_id}/keywords/{keyword_id}.json',
+                'summary' => 'Delete specified Keyword.' . PHP_EOL . '[ImageRelay API: Keyword](https://github.com/imagerelay/API/blob/master/sections/keywording.md#delete-keyword)',
+                'parameters' => array(
+                    'keyword_set_id' => array(
+                        'location' => 'uri',
+                        'description' => 'Keyword ID',
+                        'type' => 'integer',
+                        'required' => true,
+                    ),
+                    'keyword_id' => array(
+                        'location' => 'uri',
+                        'description' => 'Keyword ID',
+                        'type' => 'integer',
+                        'required' => true,
+                    )
+                )
+            ),
         )
     );
 ?>

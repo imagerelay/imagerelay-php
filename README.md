@@ -9,7 +9,7 @@ We recommend using composer to manage dependencies and installation of the Image
 
 #####Run the following command from your console
 ```php
-	$ composer require imagerelay/imagerelay-php
+	$ php composer.phar require imagerelay/imagerelay-php
 ```
 
 ##Usage
@@ -24,8 +24,8 @@ To use the library you only need to have an Image Relay account with proper perm
 	    'auth' => 'http',
 	    'username' => 'username',
 	    'password' => 'password',
-	    'app_name' => 'Awesome APP',
-	    'app_contact' => 'http://www.awesomeapp.com'
+	    'app_name' => 'Sample APP',
+	    'app_contact' => 'http://www.sampleapp.com'
 	));
 ?>
 ```
@@ -40,8 +40,8 @@ When authorizing with oauth you will need to use one of the many existing librar
 	$client = ImageRelay\ImageRelayClient::factory(array(
 	    'auth' => 'oauth',
 	    'token' => '08dfsafd8asdf8asdf90as8df90df8',
-	    'app_name' => 'Awesome APP',
-	    'app_contact' => 'http://www.awesomeapp.com'
+	    'app_name' => 'Sample APP',
+	    'app_contact' => 'http://www.sampleapp.com'
 	));
 ?>
 ```
@@ -333,3 +333,83 @@ $response = $client->deleteWebhook( array(
 $response = $client->getSupportedWebhooks();
 ```
 
+###KEYWORDING
+[Image Relay API: Keyword Sets](https://github.com/imagerelay/API/blob/master/sections/keywording.md)
+
+####Keyword Sets
+#####Get Keyword Sets
+```php
+$response = $client->getKeywordSets( array(
+	'page' => 2,
+));
+```
+
+#####Get KeywordSet
+```php
+$response = $client->getKeywordSet( array(
+	'id' => 290503,
+));
+```
+
+#####Create KeywordSet
+```php
+$response = $client->createKeywordSet( array(
+	'name' => 'Sample Keyword Set name',
+));
+```
+
+#####Update KeywordSet
+```php
+$response = $client->updateKeywordSet( array(
+	'id' = > 244244,
+	'name' => 'Sample Keyword Set name',
+));
+```
+
+#####Delete Keyword Set
+```php
+$response = $client->deleteKeywordSet( array(
+	'id' => 290503,
+));
+```
+
+####Keywords
+#####Get Keywords
+```php
+$response = $client->getKeywords( array(
+	'keyword_set_id' => 2522,
+));
+```
+
+#####Get Keyword
+```php
+$response = $client->getKeyword( array(
+	'keyword_set_id' => 290503,
+	'keyword_id' => 22323,
+));
+```
+
+#####Create Keyword
+```php
+$response = $client->createKeyword( array(
+	'keyword_set_id' => 22422,
+	'name' => 'Sample Keyword Set name',
+));
+```
+
+#####Update Keyword
+```php
+$response = $client->updateKeyword( array(
+	'keyword_set_id' => 32454,
+	'keyword_id' => 23224,
+	'name' => 'Sample Keyword Set name',
+));
+```
+
+#####Delete Keyword
+```php
+$response = $client->deleteKeyword( array(
+	'keyword_set_id' => 290503,
+	'keyword_id' => 21424,
+));
+```
