@@ -1,0 +1,29 @@
+HTTP/1.1 201 CREATED
+Server: nginx
+Date: Fri, 12 Apr 2013 12:09:01 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Status: 200 OK
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-UA-Compatible: chrome=1
+X-XHR-Current-Location: /api/v2/folders/191678/children.json
+X-Asset-Paths: {"application.js":"application-d265257400a78c84714eef6d6f34f2ad.js","application.css":"application-f0a5ae63903c0c1d32c6f03cf7bb8c8a.css"}
+ETag: "24d3f12354466094e942e6731fb89b68"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 18723020-c8f2-4ddc-b427-9d633ed94fcc
+X-Runtime: 0.339996
+
+{
+    "asset_count":1,
+    "child_count":0,
+    "created_on":"2012-06-19T08:41:19Z",
+    "id":11136,
+    "metagroup_id":null,
+    "name":"Testing Folder Update",
+    "parent_id":6527,
+    "updated_on":"2012-07-23T15:39:16Z",
+    "user_id":405
+}

@@ -136,4 +136,142 @@ class ImageRelayClientTest extends \Guzzle\Tests\GuzzleTestCase
             'url' => ''
         ));
     }
+
+    public function testGetFolders()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'get_folders'
+        ));
+
+        $response = $client->getFolders();
+
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey(0, $response);
+        $this->assertArrayHasKey('id', $response[0]);
+        $this->assertSame(11136, $response[0]['id']);
+        $this->assertSame(11150, $response[1]['id']);
+    }
+
+    public function testGetChildFolders()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'get_folders'
+        ));
+
+        $response = $client->getChildFolders( array(
+            'folder_id' => 191678,
+        ));
+
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey(0, $response);
+        $this->assertArrayHasKey('id', $response[0]);
+        $this->assertSame(11136, $response[0]['id']);
+        $this->assertSame(11150, $response[1]['id']);
+    }
+
+    public function testGetRootFolder()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'get_folders'
+        ));
+
+        $response = $client->getRootFolder();
+
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey(0, $response);
+        $this->assertArrayHasKey('id', $response[0]);
+        $this->assertSame(11136, $response[0]['id']);
+        $this->assertSame(11150, $response[1]['id']);
+    }
+
+    public function testGetFolder()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'get_folder'
+        ));
+
+        $response = $client->getFolder( array(
+            'folder_id' => 19678,
+        ));   
+
+        $this->assertSame(11136, $response['id']);
+    }
+     /**
+     * @expectedException Guzzle\Service\Exception\ValidationException
+     */
+    public function testShoulFailToGetFolderWithoutFolderID()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'get_folder'
+        ));
+
+        $response = $client->getFolder( array(
+    
+        ));   
+    }
+
+    public function testCreateFolder()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'create_folder'
+        ));
+
+        $response = $client->createFolder( array(
+            'folder_id' => 191678,
+            'name' => 'Testing Folder Create',
+        ));
+
+        $this->assertSame(11136, $response['id']);
+    }
+
+    /**
+     * @expectedException Guzzle\Service\Exception\ValidationException
+     */
+    public function testShouldFailToCreateFolderWithoutName()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'create_folder'
+        ));
+
+        $response = $client->createFolder( array(
+            'folder_id' => 191678,
+        ));
+    }
+
+    public function testUpdateFolder()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'create_folder'
+        ));
+
+        $response = $client->updateFolder( array(
+            'folder_id' => 191678,
+            'name' => 'Testing Folder Update',
+        ));
+
+        $this->assertSame('Testing Folder Update', $response['name']);
+    }
+
+    /**
+     * @expectedException Guzzle\Service\Exception\ValidationException
+     */
+    public function testShouldFailToUpdateFolderWithoutName()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'create_folder'
+        ));
+
+        $response = $client->updateFolder( array(
+            'folder_id' => 191678,
+        ));
+    }
 }

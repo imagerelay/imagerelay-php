@@ -20,4 +20,3 @@ Guzzle\Tests\GuzzleTestCase::setServiceBuilder(Guzzle\Service\Builder\ServiceBui
     )
 )));
 ?>
-

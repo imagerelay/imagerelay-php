@@ -9,7 +9,7 @@ X-Frame-Options: SAMEORIGIN
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
 X-UA-Compatible: chrome=1
-X-XHR-Current-Location: /99999/api/v1/projects.json
+X-XHR-Current-Location: /api/v2/folders/5555/files.json
 X-Asset-Paths: {"application.js":"application-d265257400a78c84714eef6d6f34f2ad.js","application.css":"application-f0a5ae63903c0c1d32c6f03cf7bb8c8a.css"}
 ETag: "24d3f12354466094e942e6731fb89b68"
 Cache-Control: max-age=0, private, must-revalidate
