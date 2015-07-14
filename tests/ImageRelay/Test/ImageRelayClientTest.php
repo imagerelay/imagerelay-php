@@ -78,8 +78,62 @@ class ImageRelayClientTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertArrayHasKey(0, $response);
         $this->assertArrayHasKey('id', $response[0]);
         $this->assertSame(2222, $response[0]['id']);
+        $this->assertSame(1234, $response[1]['id']);
     }
 
+    public function testGetFile()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'get_file'
+        ));
 
+        $response = $client->getFile( array(
+            'id' => 8363117,
+        ));
 
+        $this->assertSame(2222, $response['id']);
+    }
+
+    public function testUploadFileFromURL()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'upload_file_from_url'
+        ));
+
+        $response = $client->uploadFileFromURL( array(
+            'filename' => 'test.jpg',
+            'folder_id' => 285356,
+            'file_type_id' => 1464,
+            'terms' => array(
+                'term_id' => '145',
+                'value' => 'Test Value',
+            ),
+            'url' => 'https://upload.wikimedia.org/wikipedia/commons/5/55/Atelopus_zeteki1.jpg'
+        ));
+
+        $this->assertSame(242802, $response['id']);
+    }
+
+    /**
+     * @expectedException Guzzle\Service\Exception\ValidationException
+     */
+    public function testShouldFailToUploadFileFromURL()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'upload_file_from_url'
+        ));
+
+        $response = $client->uploadFileFromURL( array(
+            'filename' => 'test.jpg',
+            'file_type_id' => 1464,
+            'terms' => array(
+                'term_id' => '145',
+                'value' => 'Test Value',
+            ),
+            'url' => ''
+        ));
+    }
 }
