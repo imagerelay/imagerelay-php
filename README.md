@@ -17,7 +17,7 @@ To use the library you only need to have an Image Relay account with proper perm
 
 #####Authorization with username and password
 
-Don't forget to change the subdomain in ```imagerelay_url``` to your own subdomain.
+Don't forget to change ```imagerelay_url``` to use your own subdomain or custom url.
 
 ```php
 <?php
@@ -37,7 +37,7 @@ Don't forget to change the subdomain in ```imagerelay_url``` to your own subdoma
 #####Authorization with oAuth
 When authorizing with oauth you will need to use one of the many existing libraries available to retrieve your oauth access token.  The Image Relay API adheres to oauth standars for authentication.
 
-Don't forget to change the subdomain in ```imagerelay_url``` to your own subdomain.
+Don't forget to change ```imagerelay_url``` to use your own subdomain or custom url.
 
 ```php
 <?php
