@@ -12,26 +12,20 @@ We recommend using composer to manage dependencies and installation of the Image
 	$ php composer.phar require imagerelay/imagerelay-php
 ```
 
-#####Edit the following line to set the correct API URL
-###### /vendor/imagerelay/imagerelay-php/src/ImageRelay/ImageRelayClient.php
-
-Update the imagerelay_url field with your correct subdomain or custom domain name.
-
-```php
-$default = array(
-    'base_url'          => 'https://{imagerelay_url}/api/v2/',
-    'imagerelay_url'    => 'subdomain.imagerelay.com',
-);
-```
 ##Usage
 To use the library you only need to have an Image Relay account with proper permissions to complete the API actions. You will need to require once the vender/autoload.php file provided by composer.
 
 #####Authorization with username and password
+
+Don't forget to change the subdomain in ```imagerelay_url``` to your own subdomain.
+
 ```php
 <?php
 	require_once 'vendor/autoload.php';
 
 	$client = ImageRelay\ImageRelayClient::factory(array(
+	    'imagerelay_url' => 'subdomain.imagerelay.com',
+	    'base_url' => 'https://{imagerelay_url}/api/v2/',
 	    'auth' => 'http',
 	    'username' => 'username',
 	    'password' => 'password',
@@ -44,11 +38,15 @@ To use the library you only need to have an Image Relay account with proper perm
 #####Authorization with oAuth
 When authorizing with oauth you will need to use one of the many existing libraries available to retrieve your oauth access token.  The Image Relay API adheres to oauth standars for authentication.
 
+Don't forget to change the subdomain in ```imagerelay_url``` to your own subdomain.
+
 ```php
 <?php
 	require_once 'vendor/autoload.php';
 
 	$client = ImageRelay\ImageRelayClient::factory(array(
+	    'imagerelay_url' => 'subdomain.imagerelay.com',
+	    'base_url' => 'https://{imagerelay_url}/api/v2/',
 	    'auth' => 'oauth',
 	    'token' => '08dfsafd8asdf8asdf90as8df90df8',
 	    'app_name' => 'Sample APP',
