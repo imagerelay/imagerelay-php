@@ -36,7 +36,7 @@ To use the library you only need to have an Image Relay account with proper perm
 	    'username' => 'username',
 	    'password' => 'password',
 	    'app_name' => 'Sample APP',
-	    'app_contact' => 'http://www.sampleapp.com'
+	    'app_contact' => 'http://www.sampleapp.com',
 	));
 ?>
 ```
@@ -52,7 +52,7 @@ When authorizing with oauth you will need to use one of the many existing librar
 	    'auth' => 'oauth',
 	    'token' => '08dfsafd8asdf8asdf90as8df90df8',
 	    'app_name' => 'Sample APP',
-	    'app_contact' => 'http://www.sampleapp.com'
+	    'app_contact' => 'http://www.sampleapp.com',
 	));
 ?>
 ```
@@ -434,7 +434,7 @@ $uploadJob = $client->createUploadJob( array(
 	'file_type_id' => 1464,
 	'files' => array ( array (
 		'name' => 'two_frogs.jpg',
-		'size' => '222222222'
+		'size' => filesize($_SERVER['DOCUMENT_ROOT'].'/two_frogs.jpg')
 		)
 	),
 	'terms' => array ( array (
