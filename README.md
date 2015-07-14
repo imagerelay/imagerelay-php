@@ -25,7 +25,6 @@ Don't forget to change the subdomain in ```imagerelay_url``` to your own subdoma
 
 	$client = ImageRelay\ImageRelayClient::factory(array(
 	    'imagerelay_url' => 'subdomain.imagerelay.com',
-	    'base_url' => 'https://{imagerelay_url}/api/v2/',
 	    'auth' => 'http',
 	    'username' => 'username',
 	    'password' => 'password',
@@ -46,7 +45,6 @@ Don't forget to change the subdomain in ```imagerelay_url``` to your own subdoma
 
 	$client = ImageRelay\ImageRelayClient::factory(array(
 	    'imagerelay_url' => 'subdomain.imagerelay.com',
-	    'base_url' => 'https://{imagerelay_url}/api/v2/',
 	    'auth' => 'oauth',
 	    'token' => '08dfsafd8asdf8asdf90as8df90df8',
 	    'app_name' => 'Sample APP',
