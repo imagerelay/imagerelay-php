@@ -1,0 +1,50 @@
+HTTP/1.1 200 OK
+Server: nginx
+Date: Fri, 12 Apr 2013 12:09:01 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Status: 200 OK
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-UA-Compatible: chrome=1
+X-XHR-Current-Location: /api/v2/quick_links.json
+X-Asset-Paths: {"application.js":"application-d265257400a78c84714eef6d6f34f2ad.js","application.css":"application-f0a5ae63903c0c1d32c6f03cf7bb8c8a.css"}
+ETag: "24d3f12354466094e942e6731fb89b68"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 18723020-c8f2-4ddc-b427-9d633ed94fcc
+X-Runtime: 0.339996
+
+[
+    {
+        "id": 365,
+        "uid": "283f889bb3424fce814577d0d87979zd",
+        "purpose": null,
+        "created_at": "2013-08-12T14:58:34Z",
+        "processing": false,
+        "asset_id": 241635,
+        "user_id": 405,
+        "url": "https://your_url.imagerelay.com/ql/283f889bb3424fce814577d0d87979zd/00007-a_52x78_72_RGB.jpg"
+    },
+    {
+        "id": 366,
+        "uid": "88460f259af94d819f2032c09206a4zz",
+        "purpose": null,
+        "created_at": "2013-08-12T14:58:58Z",
+        "processing": false,
+        "asset_id": 241636,
+        "user_id": 405,
+        "url": "https://your_url.imagerelay.com/ql/88460f259af94d819f2032c09206a4zz/00007-a_55x82_72_RGB.jpg"
+    },
+    {
+        "id": 7,
+        "uid": "ddc5f4615d3d4dc4b46c095e913011z7",
+        "purpose": "API",
+        "created_at": "2012-05-04T14:04:17Z",
+        "processing": false,
+        "asset_id": 239370,
+        "user_id": 405,
+        "url": "https://your_url.imagerelay.com/ql/ddc5f4615d3d4dc4b46c095e913011z7/IMG_1178.JPG"
+    }
+]
