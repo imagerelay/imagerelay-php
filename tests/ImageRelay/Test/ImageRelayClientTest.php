@@ -667,5 +667,61 @@ class ImageRelayClientTest extends \Guzzle\Tests\GuzzleTestCase
         $this->assertSame(1, $response['id']);
     }
 
+    public function testShouldGetWebhooks()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'webhooks'
+        ));
+
+        $response = $client->getWebhooks();
+
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey(0, $response);
+        $this->assertArrayHasKey('action', $response[0]);
+        $this->assertSame('file', $response[0]['resource']);
+        $this->assertSame('file', $response[1]['resource']);
+    }
+
+    public function testShouldGetWebhook()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'webhook'
+        ));
+
+        $response = $client->getWebhook( array(
+            'id' => 51
+        ));
+
+        $this->assertSame('file', $response['resource']);
+    }
+
+    public function testShouldCreateAWebhook()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'webhook'
+        ));
+
+        $response = $client->getWebhook( array(
+            'id' => 51
+        ));
+
+        $this->assertSame('file', $response['resource']);
+    }
+
+    public function testShouldDeleteAWebhook()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'webhook'
+        ));
+
+        $response = $client->deleteWebhook( array(
+            'id' => 51
+        ));
+    }
+
 
 }
