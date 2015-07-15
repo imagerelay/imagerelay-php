@@ -16,10 +16,13 @@ Cache-Control: max-age=0, private, must-revalidate
 X-Request-Id: 18723020-c8f2-4ddc-b427-9d633ed94fcc
 X-Runtime: 0.339996
 
-   {
-        "user_id":405,
-        "resource":"file",
-        "action":"created",
-        "url":"http://example.com",
-        "created_at":"2015-06-18T19:18:35Z"
-    }
+{
+    "event": {
+            "resource":"file",
+            "action":"added_to_folder",
+            "resource_id":242694,
+            "actor_id":405,
+            "recipient_id":11285
+    },
+    "data": { "id":1234 }
+}

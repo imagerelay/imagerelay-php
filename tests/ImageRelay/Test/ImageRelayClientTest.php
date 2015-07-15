@@ -694,7 +694,7 @@ class ImageRelayClientTest extends \Guzzle\Tests\GuzzleTestCase
             'id' => 51
         ));
 
-        $this->assertSame('file', $response['resource']);
+        $this->assertSame('file', $response['event']['resource']);
     }
 
     public function testShouldCreateAWebhook()
@@ -708,7 +708,7 @@ class ImageRelayClientTest extends \Guzzle\Tests\GuzzleTestCase
             'id' => 51
         ));
 
-        $this->assertSame('file', $response['resource']);
+        $this->assertSame('file', $response['event']['resource']);
     }
 
     public function testShouldDeleteAWebhook()
