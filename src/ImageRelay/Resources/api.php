@@ -537,7 +537,7 @@
             ),
 
             /* createUploadLink */
-            'createUploadLInk' => array(
+            'createUploadLink' => array(
                 'httpMethod' => 'POST',
                 'uri' => 'upload_links.json',
                 'summary' => 'Create a new quick link.' . PHP_EOL . '[ImageRelay API: Upload Links](https://github.com/imagerelay/api/blob/master/sections/upload_links.md#create-upload-link)',

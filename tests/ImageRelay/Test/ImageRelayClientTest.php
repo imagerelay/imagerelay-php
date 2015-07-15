@@ -317,4 +317,600 @@ class ImageRelayClientTest extends \Guzzle\Tests\GuzzleTestCase
         $response = $client->getFileType( array(
         ));
     }
+
+    public function testShouldGetFolderLinks()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'get_folder_links'
+        ));
+
+        $response = $client->getFolderLinks();
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey(0, $response);
+        $this->assertArrayHasKey('id', $response[0]);
+        $this->assertSame('testing api creation', $response[0]['purpose']);
+        $this->assertSame('testing api creation', $response[1]['purpose']);
+    }
+
+    public function testShouldGetFolderLink()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'get_folder_link'
+        ));
+
+        $response = $client->getFolderLink( array(
+            id => 53,
+        ));
+
+        $this->assertSame('testing api creation', $response['purpose']);
+    }
+
+    /**
+     * @expectedException Guzzle\Service\Exception\ValidationException
+     */
+    public function testShouldFailToGetFolderLink()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'get_folder_link'
+        ));
+
+        $response = $client->getFolderLink( array(
+        ));
+    }
+
+    public function testShouldCreateFolderLink()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'get_folder_link'
+        ));
+
+        $response = $client->createFolderLink( array(
+            'folder_id' => 290503,
+            'allows_download' => true,
+            'expires_on' => '2015-07-15',
+            'show_tracking' => true,
+            'purpose' => 'testing api creation',
+        ));
+
+        $this->assertSame('testing api creation', $response['purpose']);
+        $this->assertTrue($response['allows_download']);
+    }
+
+    public function testShouldDeleteFolderLink()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'delete_folder_link'
+        ));
+
+        $response = $client->deleteFolderLink( array(
+            'id' => 290503,
+        ));
+    }
+
+    public function testShouldGetInvitedUsers()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'invited_users'
+        ));
+
+        $response = $client->getInvitedUsers();
+
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey(0, $response);
+        $this->assertArrayHasKey('id', $response[0]);
+        $this->assertSame('First Name', $response[0]['first_name']);
+        $this->assertSame('API Test Company', $response[1]['company']);
+    }
+
+    public function testShouldGetInvitedUser()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'invited_user'
+        ));
+
+        $response = $client->getInvitedUser( array(
+            'id' => 99,
+        ));
+
+        $this->assertSame('First Name', $response['first_name']);
+    }
+
+    public function testShouldInviteANewUser()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'invited_user'
+        ));
+
+        $response = $client->inviteNewUser( array(
+            'first_name' => 'First Name',
+            'last_name' => 'Last Name',
+            'email' => 'example@imagerelay.com',
+            'company' => 'API Test Company',
+            'permission_id' => 167,
+        ));
+
+        $this->assertSame('First Name', $response['first_name']);
+    }
+
+    public function testShouldDeleteAInvitedUser()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'invited_user'
+        ));
+
+        $response = $client->getInvitedUser( array(
+            'id' => 99,
+        ));
+    }
+
+    public function testShouldGetPermissions()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'permissions'
+        ));
+
+        $response = $client->getPermissions( array(
+            'page' => 2,
+        ));
+
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey(0, $response);
+        $this->assertArrayHasKey('id', $response[0]);
+        $this->assertSame('IR ADMIN', $response[0]['name']);
+        $this->assertSame(145, $response[1]['id']);
+    }
+
+    public function testShouldGetPermission()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'permission'
+        ));
+
+        $response = $client->getPermissions( array(
+            'id' => 145,
+        ));
+
+        $this->assertSame(145, $response['id']);
+    }
+
+    public function testShouldGetQuickLinks()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'quick_links'
+        ));
+
+        $response = $client->getQuickLinks( array(
+            'page' => 2,
+        ));
+
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey(0, $response);
+        $this->assertArrayHasKey('id', $response[0]);
+        $this->assertSame('https://your_url.imagerelay.com/ql/283f889bb3424fce814577d0d87979zd/00007-a_52x78_72_RGB.jpg', $response[0]['url']);
+        $this->assertSame(365, $response[0]['id']);
+    }
+
+    public function testShouldGetQuickLink()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'quick_link'
+        ));
+
+        $response = $client->getQuickLink( array(
+            'id' => 365,
+        ));
+
+        $this->assertSame('https://your_url.imagerelay.com/ql/283f889bb3424fce814577d0d87979zd/00007-a_52x78_72_RGB.jpg', $response['url']);
+    }
+
+    public function testShouldCreateQuickLink()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'quick_link'
+        ));
+
+        $response = $client->createQuickLink( array(
+            'asset_id' => 290503,
+            'purpose' => 'Download for spring catalog images',
+        ));
+
+        $this->assertSame('https://your_url.imagerelay.com/ql/283f889bb3424fce814577d0d87979zd/00007-a_52x78_72_RGB.jpg', $response['url']);
+    }
+
+    /**
+     * @expectedException Guzzle\Service\Exception\ValidationException
+     */
+    public function testShouldFailToCreateQuickLink()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'quick_link'
+        ));
+
+        $response = $client->createQuickLink( array(
+            'purpose' => 'Download for spring catalog images',
+        ));
+        
+        $this->assertSame('https://your_url.imagerelay.com/ql/283f889bb3424fce814577d0d87979zd/00007-a_52x78_72_RGB.jpg', $response['url']);
+    }
+
+    public function testShouldDeleteQuickLink()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'quick_link'
+        ));
+
+        $response = $client->deleteQuickLink( array(
+            'id' => 290503,
+        ));
+    }
+
+    //UPLOADLINKS
+    public function testShouldGetUploadLinks()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'upload_links'
+        ));
+
+        $response = $client->getUploadLinks( array(
+            'page' => 2,
+        ));
+
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey(0, $response);
+        $this->assertArrayHasKey('id', $response[0]);
+        $this->assertSame('http://your_url.imagerelay.com/ul/cbd72b7d310744c482847ac4a3d8dcc5', $response[0]['upload_link_url']);
+        $this->assertSame(23, $response[1]['id']);
+    }
+
+    public function testShouldGetUploadLink()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'upload_link'
+        ));
+
+        $response = $client->getUploadLink( array(
+            'id' => 23,
+        ));
+
+        $this->assertSame('http://your_url.imagerelay.com/ul/cbd72b7d310744c482847ac4a3d8dcc5', $response['upload_link_url']);
+    }
+
+    public function testShouldCreateUploadLink()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'upload_link'
+        ));
+
+        $response = $client->createUploadLink( array(
+            'folder_id' => 290503,
+            'purpose' => 'Upload for spring catalog images',
+        ));
+
+        $this->assertSame('http://your_url.imagerelay.com/ul/cbd72b7d310744c482847ac4a3d8dcc5', $response['upload_link_url']);
+    }
+
+    /**
+     * @expectedException Guzzle\Service\Exception\ValidationException
+     */
+    public function testShouldFailToCreateUploadLink()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'upload_link'
+        ));
+
+        $response = $client->createUploadLink( array(
+            'purpose' => 'Upload location for spring catalog images',
+        ));
+    }
+
+    public function testShouldDeleteUploadLink()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'upload_link'
+        ));
+
+        $response = $client->deleteUploadLink( array(
+            'id' => 290503,
+        ));
+    }
+
+    public function testShouldGetUsers()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'users'
+        ));
+
+        $response = $client->getUsers( array(
+            'page' => 2,
+        ));
+
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey(0, $response);
+        $this->assertArrayHasKey('id', $response[0]);
+        $this->assertSame(1, $response[0]['id']);
+        $this->assertSame(405, $response[1]['id']);
+    }
+
+    public function testShouldGetUser()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'user'
+        ));
+
+        $response = $client->getUser( array(
+            'id' => 1,
+        ));
+
+        $this->assertSame(1, $response['id']);
+    }
+
+    public function testShouldGetWebhooks()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'webhooks'
+        ));
+
+        $response = $client->getWebhooks();
+
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey(0, $response);
+        $this->assertArrayHasKey('action', $response[0]);
+        $this->assertSame('file', $response[0]['resource']);
+        $this->assertSame('file', $response[1]['resource']);
+    }
+
+    public function testShouldGetWebhook()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'webhook'
+        ));
+
+        $response = $client->getWebhook( array(
+            'id' => 51
+        ));
+
+        $this->assertSame('file', $response['event']['resource']);
+    }
+
+    public function testShouldCreateAWebhook()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'webhook'
+        ));
+
+        $response = $client->getWebhook( array(
+            'id' => 51
+        ));
+
+        $this->assertSame('file', $response['event']['resource']);
+    }
+
+    public function testShouldDeleteAWebhook()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'webhook'
+        ));
+
+        $response = $client->deleteWebhook( array(
+            'id' => 51
+        ));
+    }
+
+    public function testShouldGetKeywordSets()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'keyword_sets'
+        ));
+
+        $response = $client->getKeywordSets( array(
+            'page' => 2,
+        ));
+
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey(0, $response);
+        $this->assertArrayHasKey('id', $response[0]);
+        $this->assertSame('Test', $response[0]['name']);
+        $this->assertSame('Test 2', $response[1]['name']);
+    }
+
+    public function testShouldGetKeywordSet()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'keyword_set'
+        ));
+
+        $response = $client->getKeywordSet( array(
+            'id' => 18,
+        ));
+
+        $this->assertSame('Test', $response['name']);
+    }
+
+    public function testShouldCreateKeywordSet()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'keyword_set'
+        ));
+        
+        $response = $client->createKeywordSet( array(
+            'name' => 'Test',
+        ));
+
+
+        $this->assertSame('Test', $response['name']);   
+    }
+
+    public function testShouldUpdateKeywordSet()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'keyword_set'
+        ));
+        
+        $response = $client->updateKeywordSet( array(
+            'id' => 18,
+            'name' => 'Test',
+        ));
+
+
+        $this->assertSame('Test', $response['name']);   
+    }
+
+    public function testShouldDeleteKeywordSet()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'keyword_set'
+        ));
+        
+        $response = $client->deleteKeywordSet( array(
+            'id' => 18,
+        ));
+    }
+    
+    public function testShouldGetKeywords()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'keywords'
+        ));
+
+        $response = $client->getKeywords( array(
+            'keyword_set_id' => 18,            
+        ));
+
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey(0, $response);
+        $this->assertArrayHasKey('id', $response[0]);
+        $this->assertSame('Color', $response[0]['name']);
+        $this->assertSame('Size', $response[1]['name']);
+    }
+
+    public function testShouldGetKeyword()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'keyword'
+        ));
+
+        $response = $client->getKeyword( array(
+            'keyword_set_id' => 18,
+            'keyword_id' => 72
+        ));
+
+        $this->assertSame('Color', $response['name']);
+    }
+
+    public function testShouldCreateKeyword()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'keyword'
+        ));
+
+        $response = $client->createKeyword( array(
+            'keyword_set_id' => 22422,
+            'name' => 'Color',
+        ));
+
+        $this->assertSame('Color', $response['name']);
+    }
+
+    public function testShouldUpdateKeyword()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'keyword'
+        ));
+
+        $response = $client->updateKeyword( array(
+            'keyword_set_id' => 32454,
+            'keyword_id' => 23224,
+            'name' => 'Color',
+        ));
+
+        $this->assertSame('Color', $response['name']);
+    }
+
+    public function testShouldDeleteKeyword()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'keyword'
+        ));
+
+        $response = $client->deleteKeyword( array(
+            'keyword_set_id' => 290503,
+            'keyword_id' => 21424,
+        ));
+    }
+
+    public function testShouldCreateUploadJob()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'upload_job'
+        ));
+
+        $uploadJob = $client->createUploadJob( array(
+            'folder_id' => 291692,
+            'file_type_id' => 1464,
+            'files' => array ( array (
+                'name' => 'greateful-dead-stealy.jpg',
+                'size' => '2232442244242'
+                )
+            ),
+            'terms' => array ( array (
+                'term_id' => '5802',
+                'value' => 'Testing 123'
+                )
+            ),
+        ));
+    }
+
+    public function testShouldUploadChunk()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'chunk'
+        ));
+
+        $upload = $client->createFileChunk( array(
+            'upload_job_id' => 141,
+            'file_id' => 11111,
+            'chunk_id' => 1,
+            'mimeType' => 'application/octet-stream',
+            'data' => 'grateful-dead-stealy.jpg',
+        ));
+    }
 }

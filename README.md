@@ -278,7 +278,7 @@ $response = $client->getUploadLink( array(
 ```php
 $response = $client->createUploadLink( array(
 	'folder_id' => 290503,
-	'purpose' => 'Download for spring catalog images',
+	'purpose' => 'Upload location for spring catalog images',
 ));
 ```
 
