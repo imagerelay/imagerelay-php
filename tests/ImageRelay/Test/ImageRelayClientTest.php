@@ -874,4 +874,43 @@ class ImageRelayClientTest extends \Guzzle\Tests\GuzzleTestCase
             'keyword_id' => 21424,
         ));
     }
+
+    public function testShouldCreateUploadJob()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'upload_job'
+        ));
+
+        $uploadJob = $client->createUploadJob( array(
+            'folder_id' => 291692,
+            'file_type_id' => 1464,
+            'files' => array ( array (
+                'name' => 'greateful-dead-stealy.jpg',
+                'size' => '2232442244242'
+                )
+            ),
+            'terms' => array ( array (
+                'term_id' => '5802',
+                'value' => 'Testing 123'
+                )
+            ),
+        ));
+    }
+
+    public function testShouldUploadChunk()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'chunk'
+        ));
+
+        $upload = $client->createFileChunk( array(
+            'upload_job_id' => 141,
+            'file_id' => 11111,
+            'chunk_id' => 1,
+            'mimeType' => 'application/octet-stream',
+            'data' => 'grateful-dead-stealy.jpg',
+        ));
+    }
 }
