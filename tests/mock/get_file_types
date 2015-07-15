@@ -1,0 +1,65 @@
+HTTP/1.1 200 OK
+Server: nginx
+Date: Fri, 12 Apr 2013 12:09:01 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Status: 200 OK
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-UA-Compatible: chrome=1
+X-XHR-Current-Location: /api/v2/file_types.json
+X-Asset-Paths: {"application.js":"application-d265257400a78c84714eef6d6f34f2ad.js","application.css":"application-f0a5ae63903c0c1d32c6f03cf7bb8c8a.css"}
+ETag: "24d3f12354466094e942e6731fb89b68"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 18723020-c8f2-4ddc-b427-9d633ed94fcc
+X-Runtime: 0.339996
+
+[
+    {
+        "name": "Action A1",
+        "description": "NaN",
+        "created_on": "2008-05-18T20:16:52Z",
+        "updated_on": "2013-01-07T17:06:14Z",
+        "id": 149,
+        "terms": [
+            {
+                "name": "Keywords",
+                "position": 1,
+                "meta_name": "",
+                "display_in_download": null,
+                "created_on": "2012-06-08T12:44:38Z",
+                "updated_on": "2012-06-08T12:44:38Z",
+                "id": 1378
+            },
+            {
+                "name": "Copyright",
+                "position": 2,
+                "meta_name": "",
+                "display_in_download": null,
+                "created_on": "2012-06-08T12:44:38Z",
+                "updated_on": "2012-06-08T12:44:38Z",
+                "id": 1379
+            }
+        ]
+    },
+    {
+        "name": "Meta Data",
+        "description": "Testing Excel",
+        "created_on": "2009-05-06T10:48:00Z",
+        "updated_on": "2009-05-06T12:43:30Z",
+        "id": 194,
+        "terms": [
+            {
+                "name": "Title",
+                "position": 1,
+                "meta_name": "Title",
+                "display_in_download": null,
+                "created_on": "2009-05-06T10:48:00Z",
+                "updated_on": "2009-05-06T10:48:00Z",
+                "id": 1179
+            }
+        ]
+    }
+]
