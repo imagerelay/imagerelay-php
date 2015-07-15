@@ -274,4 +274,47 @@ class ImageRelayClientTest extends \Guzzle\Tests\GuzzleTestCase
             'folder_id' => 191678,
         ));
     }
+
+    public function testShouldGetFileTypes()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'get_file_types'
+        ));
+
+        $response = $client->getFileTypes();
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey(0, $response);
+        $this->assertArrayHasKey('id', $response[0]);
+        $this->assertSame('Action A1', $response[0]['name']);
+        $this->assertSame('Meta Data', $response[1]['name']);   
+    }
+
+    public function testShouldGetFileType()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'get_file_type'
+        ));
+
+        $response = $client->getFileType( array(
+            'id' => 149,
+        ));
+
+        $this->assertSame('Action A1', $response['name']);
+    }
+
+    /**
+     * @expectedException Guzzle\Service\Exception\ValidationException
+     */
+    public function testShouldFailToGetFileType()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'get_file_type'
+        ));
+
+        $response = $client->getFileType( array(
+        ));
+    }
 }
