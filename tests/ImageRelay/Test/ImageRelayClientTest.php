@@ -723,5 +723,155 @@ class ImageRelayClientTest extends \Guzzle\Tests\GuzzleTestCase
         ));
     }
 
+    public function testShouldGetKeywordSets()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'keyword_sets'
+        ));
 
+        $response = $client->getKeywordSets( array(
+            'page' => 2,
+        ));
+
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey(0, $response);
+        $this->assertArrayHasKey('id', $response[0]);
+        $this->assertSame('Test', $response[0]['name']);
+        $this->assertSame('Test 2', $response[1]['name']);
+    }
+
+    public function testShouldGetKeywordSet()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'keyword_set'
+        ));
+
+        $response = $client->getKeywordSet( array(
+            'id' => 18,
+        ));
+
+        $this->assertSame('Test', $response['name']);
+    }
+
+    public function testShouldCreateKeywordSet()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'keyword_set'
+        ));
+        
+        $response = $client->createKeywordSet( array(
+            'name' => 'Test',
+        ));
+
+
+        $this->assertSame('Test', $response['name']);   
+    }
+
+    public function testShouldUpdateKeywordSet()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'keyword_set'
+        ));
+        
+        $response = $client->updateKeywordSet( array(
+            'id' => 18,
+            'name' => 'Test',
+        ));
+
+
+        $this->assertSame('Test', $response['name']);   
+    }
+
+    public function testShouldDeleteKeywordSet()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'keyword_set'
+        ));
+        
+        $response = $client->deleteKeywordSet( array(
+            'id' => 18,
+        ));
+    }
+    
+    public function testShouldGetKeywords()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'keywords'
+        ));
+
+        $response = $client->getKeywords( array(
+            'keyword_set_id' => 18,            
+        ));
+
+        $this->assertInternalType('array', $response);
+        $this->assertArrayHasKey(0, $response);
+        $this->assertArrayHasKey('id', $response[0]);
+        $this->assertSame('Color', $response[0]['name']);
+        $this->assertSame('Size', $response[1]['name']);
+    }
+
+    public function testShouldGetKeyword()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'keyword'
+        ));
+
+        $response = $client->getKeyword( array(
+            'keyword_set_id' => 18,
+            'keyword_id' => 72
+        ));
+
+        $this->assertSame('Color', $response['name']);
+    }
+
+    public function testShouldCreateKeyword()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'keyword'
+        ));
+
+        $response = $client->createKeyword( array(
+            'keyword_set_id' => 22422,
+            'name' => 'Color',
+        ));
+
+        $this->assertSame('Color', $response['name']);
+    }
+
+    public function testShouldUpdateKeyword()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'keyword'
+        ));
+
+        $response = $client->updateKeyword( array(
+            'keyword_set_id' => 32454,
+            'keyword_id' => 23224,
+            'name' => 'Color',
+        ));
+
+        $this->assertSame('Color', $response['name']);
+    }
+
+    public function testShouldDeleteKeyword()
+    {
+        $client = $this->getServiceBuilder()->get('imagerelay');
+        $this->setMockResponse($client, array(
+            'keyword'
+        ));
+
+        $response = $client->deleteKeyword( array(
+            'keyword_set_id' => 290503,
+            'keyword_id' => 21424,
+        ));
+    }
 }
