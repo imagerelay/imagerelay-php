@@ -1,6 +1,6 @@
 # Image Relay API PHP Library
 
-This is still a work in progress and is not fully complete.  While the wrapper has 100% coverage of the API, it still needs 100% test coverage.  If you would like to contribute to the project please fork the repo and create a pull request with your work.  Documentation will be updated as end points are added.
+If you would like to contribute to the project please fork the repo and create a pull request with your work.  Documentation will be updated as end points are added.
 
 ## Installation
 
