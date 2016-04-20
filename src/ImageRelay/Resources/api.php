@@ -22,6 +22,12 @@
                         'type' => 'string',
                         'required' => false,
                     ),
+                    'query' => array(
+                        'location' => 'json',
+                        'description' => 'Will filter based on string',
+                        'type' => 'string',
+                        'required' => false,
+                    ),
                     'page' => array(
                         'location' => 'query',
                         'description' => 'used to paginate pages.',
