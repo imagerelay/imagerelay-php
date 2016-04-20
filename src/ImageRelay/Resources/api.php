@@ -23,7 +23,7 @@
                         'required' => false,
                     ),
                     'query' => array(
-                        'location' => 'json',
+                        'location' => 'query',
                         'description' => 'Will filter based on string',
                         'type' => 'string',
                         'required' => false,
