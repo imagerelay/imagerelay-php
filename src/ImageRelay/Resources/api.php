@@ -14,7 +14,7 @@
                         'location' => 'uri',
                         'description' => 'Folder ID',
                         'type' => 'integer',
-                        'required' => true,
+                        'required' => false,
                     ),
                     'uploaded_after' => array(
                         'location' => 'json',
@@ -33,6 +33,37 @@
                         'description' => 'used to paginate pages.',
                         'type' => 'integer',
                         'required' => false,
+                    ),
+                    'recursive' => array(
+                        'location' => 'query',
+                        'description' => 'Will recurse through all directories',
+                        'type' => 'boolean',
+                        'required' => false
+                    )
+                )
+            ),
+            'search' => array(
+                'httpMethod' => 'GET',
+                'uri' => 'files.json',
+                'summary' => 'Get files in a specific folder' . PHP_EOL . '[ImageRelay API: Files](https://github.com/imagerelay/api/blob/master/sections/files.md#get-files)',
+                'parameters' => array(
+                    'query' => array(
+                        'location' => 'query',
+                        'description' => 'Will filter based on string',
+                        'type' => 'string',
+                        'required' => false,
+                    ),
+                    'page' => array(
+                        'location' => 'query',
+                        'description' => 'used to paginate pages.',
+                        'type' => 'integer',
+                        'required' => false,
+                    ),
+                    'recursive' => array(
+                        'location' => 'query',
+                        'description' => 'Will recurse through all directories',
+                        'type' => 'boolean',
+                        'required' => false
                     )
                 )
             ),
@@ -585,6 +616,12 @@
             ),
 
             /* USERS */
+            /* getSelf */
+            'getSelf' => array(
+                'httpMethod' => 'GET',
+                'uri' => 'users/me.json',
+                'summary' => 'Get the current authenticated user, yourself.' . PHP_EOL . '[ImageRelay API: Users](https://github.com/imagerelay/api/blob/master/sections/users.md#get-user)',
+            ),
             /* getUsers */
             'getUsers' => array(
                 'httpMethod' => 'GET',
@@ -599,7 +636,6 @@
                     )
                 )
             ),
-
             /* getUser */
             'getUser' => array(
                 'httpMethod' => 'GET',
