@@ -91,7 +91,7 @@ Don't forget to change ```imagerelay_url``` to use your own subdomain or custom 
 
 ###### Top Level Folders
 ```php
-$response = $client->getFolders();
+$response = $client->getFolders('page' => 1);
 ```
 
 ###### Children of Parent Folder
