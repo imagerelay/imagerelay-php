@@ -7,15 +7,15 @@ If you would like to contribute to the project please fork the repo and create a
 We recommend using composer to manage dependencies and installation of the Image Relay API PHP library.  If you are unfamiliar with composer you can read about installation into your application here - [Composer Install How To](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)
 
 
-#####Run the following command from your console
+##### Run the following command from your console
 ```php
 	$ php composer.phar require imagerelay/imagerelay-php
 ```
 
-##Usage
+## Usage
 To use the library you only need to have an Image Relay account with proper permissions to complete the API actions. You will need to require once the vender/autoload.php file provided by composer.
 
-#####Authorization with username and password
+##### Authorization with username and password
 
 Don't forget to change ```imagerelay_url``` to use your own subdomain or custom url.
 
@@ -34,7 +34,7 @@ Don't forget to change ```imagerelay_url``` to use your own subdomain or custom 
 ?>
 ```
 
-#####Authorization with oAuth
+##### Authorization with oAuth
 When authorizing with oauth you will need to use one of the many existing libraries available to retrieve your oauth access token.  The Image Relay API adheres to oauth standars for authentication.
 
 Don't forget to change ```imagerelay_url``` to use your own subdomain or custom url.
@@ -52,10 +52,10 @@ Don't forget to change ```imagerelay_url``` to use your own subdomain or custom 
 	));
 ?>
 ```
-###Files
+### Files
 [Image Relay API: Files](https://github.com/imagerelay/api/blob/master/sections/files.md)
 
-#####Get Files from Folder
+##### Get Files from Folder
 ```php
 	$response = $client->getFiles( array(
 		'folder_id' => 8363117,
@@ -63,14 +63,14 @@ Don't forget to change ```imagerelay_url``` to use your own subdomain or custom 
 	));
 ```
 
-#####Get File
+##### Get File
 ```php
 	$response = $client->getFile( array(
 		'id' => 8363117,
 	));
 ```
 
-#####Upload File from URL
+##### Upload File from URL
 ```php
 	$response = $client->uploadFileFromURL( array(
 		'filename' => 'test.jpg',
@@ -84,10 +84,10 @@ Don't forget to change ```imagerelay_url``` to use your own subdomain or custom 
 	));
 ```
 
-###Folders
+### Folders
 [Image Relay API: Folders](https://github.com/imagerelay/API/blob/master/sections/folders.md)
 
-#####Get Folders
+##### Get Folders
 
 ###### Top Level Folders
 ```php
@@ -98,6 +98,7 @@ $response = $client->getFolders();
 ```php
 $response = $client->getChildFolders( array(
 	'folder_id' => 191678,
+	'page' => 1
 ));
 ```
 
@@ -129,37 +130,37 @@ $response = $client->updateFolder( array(
 ));
 ```
 
-###File Types
+### File Types
 [Image Relay API: File Types](https://github.com/imagerelay/API/blob/master/sections/file_types.md)
-#####Get File Types
+##### Get File Types
 ```php
 $response = $client->getFileTypes();
 ```
 
-#####Get File Type
+##### Get File Type
 ```php
 $response = $client->getFileType( array(
 	'id' => 290503,
 ));
 ```
 
-###Folder Links
+### Folder Links
 [Image Relay API: Folder Links](https://github.com/imagerelay/API/blob/master/sections/folder_links.md)
-#####Get Folder Links
+##### Get Folder Links
 ```php
 $response = $client->getFolderLinks( array(
 	'page' => 2,
 ));
 ```
 
-#####Get Folder Link
+##### Get Folder Link
 ```php
 $response = $client->getFolderLink( array(
 	'id' => 290503,
 ));
 ```
 
-#####Create Folder Link
+##### Create Folder Link
 ```php
 $response = $client->createFolderLink( array(
 	'folder_id' => 290503,
@@ -170,30 +171,30 @@ $response = $client->createFolderLink( array(
 ));
 ```
 
-#####Delete Folder Link
+##### Delete Folder Link
 ```php
 $response = $client->deleteFolderLink( array(
 	'id' => 290503,
 ));
 ```
 
-###Invited Users
+### Invited Users
 [Image Relay API: Invited Users](https://github.com/imagerelay/API/blob/master/sections/invited_users.md)
-#####Get Invited Users
+##### Get Invited Users
 ```php
 $response = $client->getInvitedUsers( array(
 	'page' => 2,
 ));
 ```
 
-#####Get Invited User
+##### Get Invited User
 ```php
 $response = $client->getInvitedUser( array(
 	'id' => 290503,
 ));
 ```
 
-#####Invite New User
+##### Invite New User
 ```php
 $response = $client->inviteNewUser( array(
 	'first_name' => 'First Name',
@@ -204,46 +205,46 @@ $response = $client->inviteNewUser( array(
 ));
 ```
 
-#####Delete Invited User
+##### Delete Invited User
 ```php
 $response = $client->deleteInvitedUser( array(
 	'id' => 290503,
 ));
 ```
 
-###Permissions
+### Permissions
 [Image Relay API: Permissions](https://github.com/imagerelay/api/blob/master/sections/permissions.md#permissions)
-#####Get Permissions
+##### Get Permissions
 ```php
 $response = $client->getPermissions( array(
 	'page' => 2,
 ));
 ```
 
-#####Get Permission
+##### Get Permission
 ```php
 $response = $client->getPermission( array(
 	'id' => 290503,
 ));
 ```
 
-###Quick Links
+### Quick Links
 [Image Relay API: Quick Links](https://github.com/imagerelay/API/blob/master/sections/quick_links.md)
-#####Get Quick Links
+##### Get Quick Links
 ```php
 $response = $client->getQuickLinks( array(
 	'page' => 2,
 ));
 ```
 
-#####Get Quick Link
+##### Get Quick Link
 ```php
 $response = $client->getQuickLink( array(
 	'id' => 290503,
 ));
 ```
 
-#####Create Quick Link
+##### Create Quick Link
 ```php
 $response = $client->createQuickLink( array(
 	'asset_id' => 290503,
@@ -251,30 +252,30 @@ $response = $client->createQuickLink( array(
 ));
 ```
 
-#####Delete Quick Link
+##### Delete Quick Link
 ```php
 $response = $client->deleteQuickLink( array(
 	'id' => 290503,
 ));
 ```
 
-###Upload Links
+### Upload Links
 [Image Relay API: Upload Links](https://github.com/imagerelay/API/blob/master/sections/upload_links.md)
-#####Get Upload Links
+##### Get Upload Links
 ```php
 $response = $client->getUploadLinks( array(
 	'page' => 2,
 ));
 ```
 
-#####Get Upload Link
+##### Get Upload Link
 ```php
 $response = $client->getUploadLink( array(
 	'id' => 290503,
 ));
 ```
 
-#####Create Upload Link
+##### Create Upload Link
 ```php
 $response = $client->createUploadLink( array(
 	'folder_id' => 290503,
@@ -282,44 +283,44 @@ $response = $client->createUploadLink( array(
 ));
 ```
 
-#####Delete Upload Link
+##### Delete Upload Link
 ```php
 $response = $client->deleteUploadLink( array(
 	'id' => 290503,
 ));
 ```
 
-###Users
+### Users
 [Image Relay API: Users](https://github.com/imagerelay/api/blob/master/sections/users.md)
-#####Get Users
+##### Get Users
 ```php
 $response = $client->getUsers( array(
 	'page' => 2,
 ));
 ```
 
-#####Get User
+##### Get User
 ```php
 $response = $client->getUser( array(
 	'id' => 290503,
 ));
 ```
 
-###Webhooks
+### Webhooks
 [Image Relay API: Webhooks](https://github.com/imagerelay/API/blob/master/sections/webhooks.md)
-#####Get Webhooks
+##### Get Webhooks
 ```php
 $response = $client->getWebhooks();
 ```
 
-#####Get Webhook
+##### Get Webhook
 ```php
 $response = $client->getWebhook( array(
 	'id' => 290503,
 ));
 ```
 
-#####Create Webhook
+##### Create Webhook
 ```php
 $response = $client->createWebhook( array(
 	'resource' => 'file',
@@ -328,44 +329,44 @@ $response = $client->createWebhook( array(
 ));
 ```
 
-#####Delete Upload Link
+##### Delete Upload Link
 ```php
 $response = $client->deleteWebhook( array(
 	'id' => 290503,
 ));
 ```
 
-#####Supported Webhooks
+##### Supported Webhooks
 ```php
 $response = $client->getSupportedWebhooks();
 ```
 
-###KEYWORDING
+### KEYWORDING
 [Image Relay API: Keywording](https://github.com/imagerelay/API/blob/master/sections/keywording.md)
 
-####Keyword Sets
-#####Get Keyword Sets
+#### Keyword Sets
+##### Get Keyword Sets
 ```php
 $response = $client->getKeywordSets( array(
 	'page' => 2,
 ));
 ```
 
-#####Get KeywordSet
+##### Get KeywordSet
 ```php
 $response = $client->getKeywordSet( array(
 	'id' => 290503,
 ));
 ```
 
-#####Create KeywordSet
+##### Create KeywordSet
 ```php
 $response = $client->createKeywordSet( array(
 	'name' => 'Sample Keyword Set name',
 ));
 ```
 
-#####Update KeywordSet
+##### Update KeywordSet
 ```php
 $response = $client->updateKeywordSet( array(
 	'id' = > 244244,
@@ -373,22 +374,22 @@ $response = $client->updateKeywordSet( array(
 ));
 ```
 
-#####Delete Keyword Set
+##### Delete Keyword Set
 ```php
 $response = $client->deleteKeywordSet( array(
 	'id' => 290503,
 ));
 ```
 
-####Keywords
-#####Get Keywords
+#### Keywords
+##### Get Keywords
 ```php
 $response = $client->getKeywords( array(
 	'keyword_set_id' => 2522,
 ));
 ```
 
-#####Get Keyword
+##### Get Keyword
 ```php
 $response = $client->getKeyword( array(
 	'keyword_set_id' => 290503,
@@ -396,7 +397,7 @@ $response = $client->getKeyword( array(
 ));
 ```
 
-#####Create Keyword
+##### Create Keyword
 ```php
 $response = $client->createKeyword( array(
 	'keyword_set_id' => 22422,
@@ -404,7 +405,7 @@ $response = $client->createKeyword( array(
 ));
 ```
 
-#####Update Keyword
+##### Update Keyword
 ```php
 $response = $client->updateKeyword( array(
 	'keyword_set_id' => 32454,
@@ -413,7 +414,7 @@ $response = $client->updateKeyword( array(
 ));
 ```
 
-#####Delete Keyword
+##### Delete Keyword
 ```php
 $response = $client->deleteKeyword( array(
 	'keyword_set_id' => 290503,
@@ -421,9 +422,9 @@ $response = $client->deleteKeyword( array(
 ));
 ```
 
-###Uploads
+### Uploads
 [Image Relay API: Uploads](https://github.com/imagerelay/api/blob/master/sections/uploads.md)
-#####createUploadJob
+##### createUploadJob
 ```php
 $uploadJob = $client->createUploadJob( array(
 	'folder_id' => 291692,
@@ -441,7 +442,7 @@ $uploadJob = $client->createUploadJob( array(
 ));
 ```
 
-#####createFileChunk
+##### createFileChunk
 ```php
 $upload = $client->createFileChunk( array(
 	'upload_job_id' => $uploadJob['id'],
